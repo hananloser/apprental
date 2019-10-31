@@ -37,6 +37,7 @@ Route::group(['prefix' => 'v1'], function () {
     //Route Owner Harus Pake MiddleWare
     Route::group(['prefix' => 'record'], function () {
         Route::get('owner', 'OwnerController@getuserOwner');
+
         // Route::group(['middleware' => 'auth:api'], function () { 
         Route::post('owner/create', 'OwnerController@store');
         Route::put('owner/update/{owner_id}', 'OwnerController@update');
