@@ -38,10 +38,10 @@ Route::group(['prefix' => 'v1'], function () {
     Route::group(['prefix' => 'record'], function () {
         Route::get('owner', 'OwnerController@getuserOwner');
 
-        // Route::group(['middleware' => 'auth:api'], function () { 
+        Route::group(['middleware' => 'auth:api'], function () { 
         Route::post('owner/create', 'OwnerController@store');
         Route::put('owner/update/{owner_id}', 'OwnerController@update');
         Route::delete('owner/delete/{owner_id}', 'OwnerController@delete');
-        // });
+        });
     });
 });

@@ -52,7 +52,7 @@ class OwnerController extends Controller
                     'no_hp'     => $request->no_hp,
                     'alamat'    => $request->alamat,
                     'rekening'  => $request->rekening,
-                    // 'user_id'   => Auth::user()->id
+                    'user_id'   => Auth::user()->id
                 ]);
                 //Jika Data Dapat Di Create
                 if ($owner == TRUE) {
