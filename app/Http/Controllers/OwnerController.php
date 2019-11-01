@@ -40,7 +40,7 @@ class OwnerController extends Controller
             'last_name'  => 'required',
             'no_hp'  => 'required|numeric|unique:owners,no_hp',
             'alamat' => 'required',
-            'rekening' => 'required|numeric|unique:owners,rekening',
+            'rekening' => 'required',
             'no_rekening' => 'required|numeric|unique:owners,no_rekening'
         ]);
         if ($validator->fails()) {
@@ -53,6 +53,8 @@ class OwnerController extends Controller
             if (Auth::check() == TRUE) {
                 $owner = new Owner();
                 $owner->firstOrCreate([
+                    'first_name'=> $request->first_name, 
+                    'last_name' => $request->last_name,
                     'no_hp'     => $request->no_hp,
                     'alamat'    => $request->alamat,
                     'rekening'  => $request->rekening,
