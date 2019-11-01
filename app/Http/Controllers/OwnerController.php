@@ -14,7 +14,8 @@ class OwnerController extends Controller
     // =========================================================================
     // Ger Data Owner
     // =========================================================================
-    public function GetuserOwner(){
+    public function GetuserOwner()
+    {
         $owner = Owner::orderBy('no_hp')->with('users')->get();
         return \response()->json([
             'status'    => true,
@@ -35,9 +36,12 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name'  => 'required',
             'no_hp'  => 'required|numeric|unique:owners,no_hp',
             'alamat' => 'required',
             'rekening' => 'required|numeric|unique:owners,rekening',
+            'no_rekening' => 'required|numeric|unique:owners,no_rekening'
         ]);
         if ($validator->fails()) {
             return \response()->json([
@@ -69,23 +73,12 @@ class OwnerController extends Controller
     // =========================================================================
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'no_hp'  => 'required|numeric',
-            'alamat' => 'required',
-            'rekening' => 'required|numeric'
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => false,
-                'pesan'  => $validator->errors()
-            ]);
-        } else {
-            Owner::where('owner_id', $id)->update($request->all());
-            return \response()->json([
-                'status' => 201,
-                'pesan'  => 'berhasil di update'
-            ], 201);
-        }
+
+        Owner::where('owner_id', $id)->update($request->all());
+        return \response()->json([
+            'status' => 201,
+            'pesan'  => 'berhasil di update'
+        ], 201);
     }
     // =========================================================================
     // Delete Data 

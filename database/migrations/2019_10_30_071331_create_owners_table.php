@@ -15,10 +15,13 @@ class CreateOwnersTable extends Migration
     {
         Schema::create('owners', function (Blueprint $table) {
             $table->bigIncrements('owner_id');
-            $table->unsignedBigInteger('user_id'); 
+            $table->unsignedBigInteger('user_id');
+            $table->string('first_name'); 
+            $table->string('last_name');  
             $table->unsignedBigInteger('no_hp'); 
             $table->string('alamat') ; 
             $table->string('rekening');
+            $table->string('no_rekening');
             $table->timestamps();
         });
     }
