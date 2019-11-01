@@ -73,7 +73,6 @@ class OwnerController extends Controller
     // =========================================================================
     public function update(Request $request, $id)
     {
-
         Owner::where('owner_id', $id)->update($request->all());
         return \response()->json([
             'status' => 201,
