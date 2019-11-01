@@ -53,11 +53,12 @@ class OwnerController extends Controller
             if (Auth::check() == TRUE) {
                 $owner = new Owner();
                 $owner->firstOrCreate([
-                    'first_name'=> $request->first_name, 
-                    'last_name' => $request->last_name,
-                    'no_hp'     => $request->no_hp,
-                    'alamat'    => $request->alamat,
-                    'rekening'  => $request->rekening,
+                    'first_name'    => $request->first_name, 
+                    'last_name'     => $request->last_name,
+                    'no_hp'         => $request->no_hp,
+                    'alamat'        => $request->alamat,
+                    'rekening'      => $request->rekening,
+                    'no_rekening'   => $request->no_rekening,
                     'user_id'   => Auth::user()->id
                 ]);
                 //Jika Data Dapat Di Create
