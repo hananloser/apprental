@@ -4,15 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\User ; 
-
 class Owner extends Model
 {
-    
-    protected $guarded = [] ; 
-   
-    public function users() {   
-        return $this->belongsTo(User::class , 'user_id');
+    protected $guarded = [];
+    protected $table = 'owners';
+    public function cars()
+    {
+        return $this->hasMany(Car::class, 'owner_id', 'owner_id');
     }
-    
 }
