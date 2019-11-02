@@ -17,6 +17,7 @@ class BrandController extends Controller
     public $created = 201;
     public $notFound = 404;
     public $auth  = 401;
+    public $noContent = 204;
 
     // =========================================================================
     // Get Alll Data Brand
@@ -57,6 +58,44 @@ class BrandController extends Controller
                     ];
                 })
             ], $this->oke, $this->headers);
+        }
+    }
+
+    // =============================================================================
+    // Cari Semua Data Dulu Apbila Di temukan Update Data berdasarkan $id
+    // =============================================================================
+    public function update(Request $request, $id)
+    {
+        $brand = Brand::where('brand_id', $id)->get();
+        if ($brand->count() <= 0) {
+            return \response()->json([
+                'status'    => true,
+                'messages'  => 'data tidak di temukan'
+            ], $this->notFound, $this->headers);
+        } else {
+            $brand->update([
+                'model' => $request->moodel
+            ]);
+            if ($brand == true) {
+                return \response()->json([
+                    'status'    => true,
+                    'messages'  => 'data berhasil di update'
+                ], $this->created, $this->headers);
+            }
+        }
+    }
+
+    // =========================================================================
+    // Delete Data Brand
+    // =========================================================================
+    public function delete($id)
+    {
+        $brand = Brand::where('brand_id', $id)->delete();
+        if ($brand == true) {
+            return \response()->json([
+                'status'    => true,
+                'messages'  => 'data berhasil di hapus'
+            ], $this->noContent, $this->headers);
         }
     }
 }
