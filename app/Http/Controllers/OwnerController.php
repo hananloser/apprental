@@ -22,6 +22,9 @@ class OwnerController extends Controller
             'data'      => $owner->map(function ($data) {
                 return [
                     'user_id' => $data->user_id,
+                    'no_rekening' => $data->no_rekening,
+                    'first_name'    => $data->first_name,
+                    'last_name'     => $data->last_name,
                     'no_hp' => $data->no_hp,
                     'alamat' => $data->alamat,
                     'rekening' => $data->rekening,
