@@ -22,7 +22,7 @@
                                     <i class="fa fa-car"></i>
                                 </div>
                                 <h6 class="text-primary text-uppercase">Car + Driver</h6>
-                                <img src="{{url('assets/img/brand/4.jpg')}}" class="card-img" height="200">
+                                <img src="{{url('assets/img/brand/car2.jpg')}}" class="card-img" height="200">
                                 <a href="#" class="btn btn-primary mt-4">Learn more</a>
                             </div>
                         </div>
