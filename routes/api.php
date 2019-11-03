@@ -36,7 +36,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('owners/car/{car_id}', 'CarController@addCars')->middleware('auth:api');
     //Car Price 
     Route::get('cars/price', 'CarController@getPrice');
-    Route::post('cars/price/{car_id}' , 'CarController@addPricesCars');
-    Route::put('cars/price/{car_id}/update' , 'CarController@updatePrice');
-    Route::delete('cars/price/{car_id}/delete' , 'CarController@delete');
+    Route::post('cars/price/{car_id}' , 'CarController@addPricesCars')->middleware('auth:api');;
+    Route::put('cars/price/{car_id}/update' , 'CarController@updatePrice')->middleware('auth:api');;
+    Route::delete('cars/price/{car_id}/delete' , 'CarController@delete')->middleware('auth:api');;
 });

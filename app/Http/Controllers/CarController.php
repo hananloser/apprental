@@ -54,6 +54,7 @@ class CarController extends Controller
 
         $clean = $car->map(function ($e) {
             return [
+                'car_id'        => $e->car_id,
                 'jenis'         => $e->jenis,
                 'warna'         => $e->warna,
                 'kapasitas'     => $e->kapasitas,

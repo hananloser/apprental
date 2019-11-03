@@ -15,7 +15,7 @@
                     <img alt="image" src="../assets/img/theme/wa.png" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width: 200px;">
                     <div class="pt-4 text-center">
                         <h5 class="title">
-                            <span class="d-block mb-1">Baharuddin</span>
+                            <span class="d-block mb-1">Layanan Pelangga</span>
                             <small class="h6 text-muted">0811-4111-778</small>
                         </h5>
 
