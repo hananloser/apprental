@@ -7,17 +7,19 @@ use App\Owner;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
-{   
+{
     // Response Header 
     public $headers = [
         'Content-Type'    => 'application/json',
         'X-With-Requests' => 'X-With-Requests'
     ];
-
-    //TambahKan Mobil berdasarkan Owner Yang Terpilih 
+    /// ========================================================================
+    // Add Some cars with a $id for relation 
+    // Tambah Data berdasarkan $id 
+    // ========================================================================
     public function addCars(Request $request, $id)
     {
-        $owner = Owner::where('owner_id' , $id)->first(); 
+        $owner = Owner::where('owner_id', $id)->first();
         $this->validate($request, [
             'warna'     => 'required',
             'plat_polisi'     => 'required',
@@ -37,14 +39,32 @@ class CarController extends Controller
             'gambar'       => $request->gambar
         ]);
         return response([
-            'status'    => true , 
+            'status'    => true,
             'messages'  => 'data berhasil di buat'
-        ] , 200)->withHeaders($this->headers);
+        ], 200)->withHeaders($this->headers);
     }
 
+    // =========================================================================
+    // Get a price 
+    // =========================================================================
+    public function getPrice()
+    {
+        $car = Car::with('price')->get();
 
-    public function getPrice(){ 
-        $car = Car::with('price')->get() ; 
-        return $car ; 
+        $clean = $car->map(function ($e) {
+            return [
+                'warna'         => $e->warna,
+                'kapasitas'     => $e->kapasitas,
+                'model_tahun'   => $e->model_tahun,
+                'jenis'         => $e->jenis,
+                'price'         => $e->price->map(function ($call) {
+                    return [
+                        'region'  => $call->region,
+                        'price'   => $call->price,
+                    ];
+                })
+            ];
+        });
+        return response($clean, 200, $this->headers);
     }
 }

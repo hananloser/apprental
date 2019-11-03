@@ -1,19 +1,12 @@
-console.log('tes')
 
+let url = '/api/v1/cars/price';
 
-let url = '/api/v1/cars' ; 
+getData();
+async function getData() {
 
+    let res = await fetch(url);
 
-async function  getData(){
+    let data = await res.json();
 
-    let res = await fetch(url) ;
-    
-    let data = await res.json(); 
+}
 
-    console.log( data.forEach(element => {
-        console.log(element)  
-    }));
-    
-    
-} 
-getData(); 
