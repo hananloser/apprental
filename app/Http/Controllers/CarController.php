@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use App\Owner;
+use App\Rent_price;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -53,10 +54,10 @@ class CarController extends Controller
 
         $clean = $car->map(function ($e) {
             return [
+                'jenis'         => $e->jenis,
                 'warna'         => $e->warna,
                 'kapasitas'     => $e->kapasitas,
                 'model_tahun'   => $e->model_tahun,
-                'jenis'         => $e->jenis,
                 'price'         => $e->price->map(function ($call) {
                     return [
                         'region'  => $call->region,
@@ -66,5 +67,54 @@ class CarController extends Controller
             ];
         });
         return response($clean, 200, $this->headers);
+    }
+    // =========================================================================
+    // Add Price for Cars
+    // =========================================================================
+    public function addPricesCars(Request $request, $id)
+    {
+        $car = Car::where('car_id', $id)->first();
+        $this->validate($request, [
+            'region'    => 'required',
+            'price'     => 'required|numeric'
+        ]);
+
+        Rent_price::create([
+            'car_id'    => $car->car_id,
+            'region'    => $request->region,
+            'price'     => $request->price
+        ]);
+
+        return response([
+            'status'    => true,
+            'messages'  => 'data berhasil di tambahkan'
+        ], 201, $this->headers);
+    }
+    // =========================================================================
+    // Update harga
+    // =========================================================================
+    public function updatePrice(Request $request, $id)
+    {
+
+        $this->validate($request, [
+            'region' => 'required',
+            'price'  => 'required|numeric'
+        ]);
+        Rent_price::where('id', $id)->update([
+            'region'    => $request->region,
+            'price'     => $request->price
+        ]);
+        return response([
+            'status'    => true,
+            'messages'  => 'data berhasil di update'
+        ], 201, $this->headers);
+    }
+
+    public function delete($id){
+        Rent_price::where('id' , $id)->delete() ; 
+        return response([
+            'status'    => true , 
+            'messages'  => 'data have deleted'
+        ] , 403 , $this->headers);
     }
 }

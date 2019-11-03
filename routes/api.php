@@ -34,5 +34,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('owners', 'OwnerController@createOwners')->middleware('auth:api');
     //Tambah mobil Owner
     Route::post('owners/car/{car_id}', 'CarController@addCars')->middleware('auth:api');
-    Route::get('cars/price', 'CarController@getPrice')->middleware('auth:api');
+    //Car Price 
+    Route::get('cars/price', 'CarController@getPrice');
+    Route::post('cars/price/{car_id}' , 'CarController@addPricesCars');
+    Route::put('cars/price/{car_id}/update' , 'CarController@updatePrice');
+    Route::delete('cars/price/{car_id}/delete' , 'CarController@delete');
 });

@@ -5,6 +5,6 @@
 
 <div class="row">
     <h2>Tes</h2>
-</div>
+</div> 
 
 @endsection
