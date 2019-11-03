@@ -16,8 +16,8 @@ class OwnerController extends Controller
 
     public function getOwnerWithCar()
     {
-        $getDataWithOwner = Owner::all()
-            ->load('cars');
+        $getDataWithOwner = Owner::all()->load('cars');
+        
         return response($getDataWithOwner, 200)
             ->withHeaders([
                 'Content-Type' => 'application/json',

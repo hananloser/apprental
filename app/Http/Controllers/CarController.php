@@ -7,7 +7,13 @@ use App\Owner;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
-{
+{   
+    // Response Header 
+    public $headers = [
+        'Content-Type'    => 'application/json',
+        'X-With-Requests' => 'X-With-Requests'
+    ];
+
     //TambahKan Mobil berdasarkan Owner Yang Terpilih 
     public function addCars(Request $request, $id)
     {
@@ -33,9 +39,6 @@ class CarController extends Controller
         return response([
             'status'    => true , 
             'messages'  => 'data berhasil di buat'
-        ] , 200 ,  $this->headers = [
-            'Content-Type'    => 'application/json',
-            'X-With-Requests' => 'X-With-Requests'
-        ]);
+        ] , 200)->withHeaders($this->headers);
     }
 }
