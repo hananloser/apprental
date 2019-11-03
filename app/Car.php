@@ -11,9 +11,11 @@ class Car extends Model
 
 
     public function owner(){ 
-
         return $this->belongsTo(Owner::class , 'owner_id' , 'owner_id');
+    }
 
+    public function price(){
+        return $this->hasMany(Rent_price::class , 'car_id' , 'car_id');
     }
 
 }

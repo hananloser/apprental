@@ -41,4 +41,10 @@ class CarController extends Controller
             'messages'  => 'data berhasil di buat'
         ] , 200)->withHeaders($this->headers);
     }
+
+
+    public function getPrice(){ 
+        $car = Car::with('price')->get() ; 
+        return $car ; 
+    }
 }
