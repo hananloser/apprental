@@ -23,9 +23,7 @@
 </head>
 
 <body>
-
     @include('layouts.navbar')
-
     @include('main.main')
 
 

@@ -37,4 +37,7 @@
     @include('main.section1')
     @include('main.section2')
     @include('main.section3')
+    @include('main.section4')
+    @include('main.section5')
+
 </main>

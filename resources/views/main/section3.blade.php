@@ -9,7 +9,7 @@
                                 <polygon points="0,52 583,95 0,95" class="fill-default"></polygon>
                                 <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-default"></polygon>
                             </svg>
-                            <h3 class="text-white-50">Parawisata</h3>
+                            <h3 class="text-white-50">Pariwisata</h3>
                         </blockquote>
                     </div>
                 </div>

@@ -15,3 +15,7 @@ Route::get('/', function () {
     return view('landing.landing');
 });
 
+
+Route::get('/tentang', function () {
+    return view('landing.tentang');
+});

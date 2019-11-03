@@ -14,40 +14,8 @@
                         </div>
                     </div>
                     <div class="pl-4">
-                        <h4 class="display-3 text-white">Modern Interface</h4>
-                        <p class="text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
-                    </div>
-                </div>
-                <div class="card shadow shadow-lg--hover mt-5">
-                    <div class="card-body">
-                        <div class="d-flex px-3">
-                            <div>
-                                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                                    <i class="ni ni-satisfied"></i>
-                                </div>
-                            </div>
-                            <div class="pl-4">
-                                <h5 class="title text-success">Awesome Support</h5>
-                                <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
-                                <a href="#" class="text-success">Learn more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card shadow shadow-lg--hover mt-5">
-                    <div class="card-body">
-                        <div class="d-flex px-3">
-                            <div>
-                                <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                                    <i class="ni ni-active-40"></i>
-                                </div>
-                            </div>
-                            <div class="pl-4">
-                                <h5 class="title text-warning">Modular Components</h5>
-                                <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
-                                <a href="#" class="text-warning">Learn more</a>
-                            </div>
-                        </div>
+                        <h4 class="display-3 text-white">Armada Nyaman</h4>
+                        <p class="text-white">Kami memberikan armada mobil yang nyaman dan kami senantiasa melakukan perawatan berkala guna memastikan kondisi yang prima untuk semua kendaraan kami yang Anda gunakan</p>
                     </div>
                 </div>
             </div>
