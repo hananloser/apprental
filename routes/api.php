@@ -30,4 +30,6 @@ Route::group(['prefix' => 'auth'], function () {
 // =============================================================================
 Route::group(['prefix' => 'v1'], function () {
         Route::get('cars', 'OwnerController@getOwnerWithCar');
+        Route::post('owners' , 'OwnerController@createOwners');
+        Route::post('owners/car/{car_id}' , 'CarController@addCars');
 });
