@@ -29,8 +29,8 @@ Route::group(['prefix' => 'auth'], function () {
 // owner endpoint
 // =============================================================================
 Route::group(['prefix' => 'v1'], function () {
-        Route::get('cars', 'OwnerController@getOwnerWithCar');
-        Route::post('owners' , 'OwnerController@createOwners');
-        Route::post('owners/car/{car_id}' , 'CarController@addCars');
-        Route::get('cars/price' , 'CarController@getPrice')->middleware('auth:api');
+    Route::get('cars', 'OwnerController@getOwnerWithCar');
+    Route::post('owners', 'OwnerController@createOwners');
+    Route::post('owners/car/{car_id}', 'CarController@addCars')->middleware('auth:api');
+    Route::get('cars/price', 'CarController@getPrice')->middleware('auth:api');
 });

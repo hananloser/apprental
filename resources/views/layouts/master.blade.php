@@ -42,7 +42,6 @@
 
     <!-- Theme JS -->
     <script src="/assets/js/argon.js"></script>
-    <script src="/assets/myjs.js"></script>
 </body>
 
 </html>
