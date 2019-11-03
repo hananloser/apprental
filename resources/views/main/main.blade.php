@@ -2,7 +2,7 @@
     <div class="position-relative">
         <!-- shape Hero -->
         <section class="section section-lg section-shaped pb-250">
-            <div class="shape shape-style-1 shape-primary">
+            <div class="shape shape-style-1 shape-container shape-primary">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -35,4 +35,6 @@
         <!-- 1st Hero Variation -->
     </div>
     @include('main.section1')
+    @include('main.section2')
+    @include('main.section3')
 </main>
