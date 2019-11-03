@@ -11,7 +11,6 @@ class CarController extends Controller
     //TambahKan Mobil berdasarkan Owner Yang Terpilih 
     public function addCars(Request $request, $id)
     {
-
         $owner = Owner::where('owner_id' , $id)->first(); 
         $this->validate($request, [
             'warna'     => 'required',
@@ -30,6 +29,13 @@ class CarController extends Controller
             'owner_id'      => $owner->owner_id,
             'jenis'         => $request->jenis,
             'gambar'       => $request->gambar
+        ]);
+        return response([
+            'status'    => true , 
+            'messages'  => 'data berhasil di buat'
+        ] , 200 ,  $this->headers = [
+            'Content-Type'    => 'application/json',
+            'X-With-Requests' => 'X-With-Requests'
         ]);
     }
 }
