@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/tentang', function () {
-    return view('landing.tentang');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
 });
