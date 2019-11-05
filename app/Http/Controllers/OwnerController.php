@@ -42,10 +42,10 @@ class OwnerController extends Controller
             $nameImage = $request->file('foto')->getClientOriginalName();
 
             $thumbImage = Image::make($image->getRealPath())->resize(600, 400);
-            $thumbPath = public_path() . '/uploads/thumb' . $nameImage;
+            $thumbPath = public_path() . '/uploads/thumb/' . $nameImage;
             $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
-            $oriPath = public_path() . '/uploads/normal' . $nameImage;
+            $oriPath = public_path() . '/uploads/normal/' . $nameImage;
             $oriImage = Image::make($image)->save($oriPath);
         };
 
