@@ -41,7 +41,7 @@ class OwnerController extends Controller
         if ($request->hasFile('foto')) {
             $gambar = $request->file('foto');
             $extension = $gambar->getClientOriginalExtension();
-            Storage::disk('public')->put($gambar->getClientOriginalExtension() . '.' . $extension, File::get($gambar));
+            Storage::disk('public')->put($gambar->getClientOriginalName(), File::get($gambar));
         };
 
         if ($validsi) {
