@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Car;
 use App\Owner;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-
+use Image ;
 class OwnerController extends Controller
 {
 
@@ -39,9 +37,16 @@ class OwnerController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            $gambar = $request->file('foto');
-            $extension = $gambar->getClientOriginalExtension();
-            Storage::disk('public')->put($gambar->getClientOriginalName(), File::get($gambar));
+
+            $image = $request->file('foto');
+            $nameImage = $request->file('foto')->getClientOriginalName();
+
+            $thumbImage = Image::make($image->getRealPath())->resize(600, 400);
+            $thumbPath = public_path() . '/uploads/thumb/' . $nameImage;
+            $thumbImage = Image::make($thumbImage)->save($thumbPath);
+
+            $oriPath = \public_path() . '/uploads/normal/' . $nameImage;
+            $oriImage = Image::make($image)->save($oriPath);
         };
 
         if ($validsi) {
@@ -50,7 +55,7 @@ class OwnerController extends Controller
                 'nama_belakang' => $request->nama_belakang,
                 'alamat'        => $request->alamat,
                 'no_hp'         => $request->no_hp,
-                'foto'          => $gambar->getClientOriginalName() . '.' . $extension,
+                'foto'          => $nameImage,
                 'rekening'      => $request->rekening,
                 'no_rekening'   => $request->no_rekening
             ]);
@@ -62,7 +67,5 @@ class OwnerController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-     
-    }
+    { }
 }
