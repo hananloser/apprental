@@ -60,17 +60,6 @@ class CarController extends Controller
             ]);
         };
 
-        Car::create([
-            'warna'     => $request->warna,
-            'plat_polisi'     => $request->plat_polisi,
-            'nomor_chasis'  => $request->nomor_chasis,
-            'kapasitas'     => $request->kapasitas,
-            'model_tahun'   => $request->model_tahun,
-            'owner_id'      => $owner->owner_id,
-            'jenis'         => $request->jenis,
-            'gambar'        => 'unImage'
-        ]);
-
         return response([
             'status'    => true,
             'messages'  => 'data berhasil di buat'
