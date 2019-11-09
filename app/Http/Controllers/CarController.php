@@ -6,6 +6,7 @@ use App\Car;
 use App\Owner;
 use App\Rent_price;
 use Illuminate\Http\Request;
+use Image;
 
 class CarController extends Controller
 {
@@ -21,7 +22,7 @@ class CarController extends Controller
     public function addCars(Request $request, $id)
     {
         $owner = Owner::where('owner_id', $id)->first();
-        $this->validate($request, [
+        $validasi = $this->validate($request, [
             'warna'     => 'required',
             'plat_polisi'     => 'required',
             'nomor_chasis'  => 'required',
@@ -29,16 +30,39 @@ class CarController extends Controller
             'model_tahun'   => 'required|numeric',
             'jenis'         => 'required',
         ]);
-        Car::create([
-            'warna'     => $request->warna,
-            'plat_polisi'     => $request->plat_polisi,
-            'nomor_chasis'  => $request->nomor_chasis,
-            'kapasitas'     => $request->kapasitas,
-            'model_tahun'   => $request->model_tahun,
-            'owner_id'      => $owner->owner_id,
-            'jenis'         => $request->jenis,
-            'gambar'       => $request->gambar
-        ]);
+
+
+
+        if ($request->hasFile('gambar')) {
+
+            $image = $request->file('gambar');
+            $nameImage = $request->file('gambar')->getClientOriginalName();
+            // Gambar Thumbp
+            $thumbImage = Image::make($image->getRealPath())->resize(600, 400);
+            // Move Gambar ke Public Path 
+            $thumbPath = public_path('uploads/thumb/cars/') . $nameImage;
+            //Create ThumbImage Di path 
+            $thumbImage = Image::make($thumbImage)->save($thumbPath);
+
+            // Gambar Asli yang di upload 
+            $oriPath = public_path('uploads/normal/cars/'). $nameImage;
+            //Move gambar nya ke path public
+            Image::make($image)->save($oriPath);
+
+            Car::create([
+                'warna'     => $request->warna,
+                'plat_polisi'     => $request->plat_polisi,
+                'nomor_chasis'  => $request->nomor_chasis,
+                'kapasitas'     => $request->kapasitas,
+                'model_tahun'   => $request->model_tahun,
+                'owner_id'      => $owner->owner_id,
+                'jenis'         => $request->jenis,
+                'gambar'        => $nameImage
+            ]);
+        };
+
+
+
         return response([
             'status'    => true,
             'messages'  => 'data berhasil di buat'
@@ -111,11 +135,12 @@ class CarController extends Controller
         ], 201, $this->headers);
     }
 
-    public function delete($id){
-        Rent_price::where('id' , $id)->delete() ; 
+    public function delete($id)
+    {
+        Rent_price::where('id', $id)->delete();
         return response([
-            'status'    => true , 
+            'status'    => true,
             'messages'  => 'data have deleted'
-        ] , 403 , $this->headers);
+        ], 403, $this->headers);
     }
 }
