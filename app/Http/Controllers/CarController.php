@@ -29,10 +29,8 @@ class CarController extends Controller
             'kapasitas'     => 'required|numeric',
             'model_tahun'   => 'required|numeric',
             'jenis'         => 'required',
+            'gambar'        => 'mimes:png,jpg'
         ]);
-
-
-
         if ($request->hasFile('gambar')) {
 
             $image = $request->file('gambar');
@@ -131,7 +129,9 @@ class CarController extends Controller
             'messages'  => 'data berhasil di update'
         ], 201, $this->headers);
     }
-
+    // =========================================================================
+    // Delete price 
+    // =========================================================================
     public function delete($id)
     {
         Rent_price::where('id', $id)->delete();
