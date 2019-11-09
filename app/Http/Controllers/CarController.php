@@ -45,10 +45,9 @@ class CarController extends Controller
             $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
             // Gambar Asli yang di upload 
-            $oriPath = public_path('uploads/normal/cars/'). $nameImage;
+            $oriPath = public_path('uploads/normal/cars/') . $nameImage;
             //Move gambar nya ke path public
             Image::make($image)->save($oriPath);
-
             Car::create([
                 'warna'     => $request->warna,
                 'plat_polisi'     => $request->plat_polisi,
@@ -61,7 +60,16 @@ class CarController extends Controller
             ]);
         };
 
-
+        Car::create([
+            'warna'     => $request->warna,
+            'plat_polisi'     => $request->plat_polisi,
+            'nomor_chasis'  => $request->nomor_chasis,
+            'kapasitas'     => $request->kapasitas,
+            'model_tahun'   => $request->model_tahun,
+            'owner_id'      => $owner->owner_id,
+            'jenis'         => $request->jenis,
+            'gambar'        => 'unImage'
+        ]);
 
         return response([
             'status'    => true,
