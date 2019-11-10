@@ -41,5 +41,3 @@ Route::group(['prefix' => 'v1'], function () {
     Route::put('cars/price/{car_id}/update' , 'CarController@updatePrice')->middleware('auth:api');;
     Route::delete('cars/price/{car_id}/delete' , 'CarController@delete')->middleware('auth:api');;
 });
-
-Route::post('/uploads', 'TesTUpload@upload')->name('upload');
