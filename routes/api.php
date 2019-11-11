@@ -30,8 +30,9 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::post('owners', 'OwnerController@createOwners')->middleware('auth:api');
     Route::put('owners/{owner_id}/update' , 'OwnerController@update')->middleware('auth:api');
-    //Tambah mobil Owner
-    Route::post('owners/car/{car_id}', 'CarController@addCars')->middleware('auth:api');
+    //Tambah mobil By Owners
+    Route::post('owners/car/{owner_id}', 'CarController@addCars')->middleware('auth:api');
+    Route::put('owners/car/{owner_id}' , 'CarController@updateCars');
     //Car Price 
     Route::get('cars/price', 'CarController@getPrice');
     Route::post('cars/price/{car_id}' , 'CarController@addPricesCars')->middleware('auth:api');;

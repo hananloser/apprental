@@ -33,7 +33,7 @@ class OwnerController extends Controller
             'no_hp' => 'required',
             'rekening'  => 'required',
             'no_rekening' => 'required',
-            'foto'      => 'mimes:png,jpg'
+            'foto'      => 'mimes:png,jpg,jpeg'
 
         ]);
 

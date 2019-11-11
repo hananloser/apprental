@@ -63,7 +63,18 @@ class CarController extends Controller
             'messages'  => 'data berhasil di buat'
         ], 200)->withHeaders($this->headers);
     }
+    // =========================================================================
+    // Update Cars by Owners
+    // =========================================================================
+    public function updateCars(Request $request, $id)
+    {
 
+        $owner = Owner::where('owner_id', $id)->first();
+        return response([
+            'status'    => true,
+            'messagess' => 'data berhasil di update'
+        ], 201, $this->headers);
+    }
     // =========================================================================
     // Get a price 
     // =========================================================================
@@ -88,9 +99,11 @@ class CarController extends Controller
         });
         return response($clean, 200, $this->headers);
     }
+
     // =========================================================================
     // Add Price for Cars
     // =========================================================================
+
     public function addPricesCars(Request $request, $id)
     {
         $car = Car::where('car_id', $id)->first();
@@ -110,6 +123,7 @@ class CarController extends Controller
             'messages'  => 'data berhasil di tambahkan'
         ], 201, $this->headers);
     }
+
     // =========================================================================
     // Update harga
     // =========================================================================
@@ -129,6 +143,7 @@ class CarController extends Controller
             'messages'  => 'data berhasil di update'
         ], 201, $this->headers);
     }
+
     // =========================================================================
     // Delete price 
     // =========================================================================
