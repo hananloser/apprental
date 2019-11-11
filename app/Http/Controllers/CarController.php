@@ -65,16 +65,32 @@ class CarController extends Controller
     }
     // =========================================================================
     // Update Cars by Owners
+    // notice gambar belum bisa di update
     // =========================================================================
-    public function updateCars(Request $request, $id)
+    public function updateCars(Request $request, $owner_id, $car_id)
     {
 
-        $owner = Owner::where('owner_id', $id)->first();
+        $owner = Owner::where('owner_id', $owner_id)->first();
+        $data = $owner->cars()->whereCar_id($car_id)->update($request->all());
         return response([
             'status'    => true,
-            'messagess' => 'data berhasil di update'
+            'messagess' => 'data berhasil di update',
         ], 201, $this->headers);
     }
+
+    public function deleteCars($owner_id, $car_id)
+    {
+
+        $owner = Owner::where('owner_id', $owner_id)->first();
+
+        $owner->cars()->whereCar_id($car_id)->delete();
+        return \response([
+            'status' => true,
+            'messagess' => 'data behasil di hapus'
+        ], 202, $this->headers);
+    }
+
+
     // =========================================================================
     // Get a price 
     // =========================================================================
