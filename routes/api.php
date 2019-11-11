@@ -29,14 +29,14 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('cars', 'OwnerController@getOwnerWithCar');
 
     Route::post('owners', 'OwnerController@createOwners')->middleware('auth:api');
-    Route::put('owners/{owner_id}/update' , 'OwnerController@update')->middleware('auth:api');
+    Route::put('owners/{owner_id}/update', 'OwnerController@update')->middleware('auth:api');
     //Tambah mobil By Owners
     Route::post('owners/car/{owner_id}', 'CarController@addCars')->middleware('auth:api');
-    Route::put('owners/car/{owner_id}/{car_id}' , 'CarController@updateCars');
-    Route::delete('owners/car/{owner_id}/{car_id}' , 'CarController@deleteCars'); 
+    Route::put('owners/car/{owner_id}/{car_id}', 'CarController@updateCars')->middleware('auth:api');
+    Route::delete('owners/car/{owner_id}/{car_id}', 'CarController@deleteCars')->middleware('auth:api');
     //Car Price 
     Route::get('cars/price', 'CarController@getPrice');
-    Route::post('cars/price/{car_id}' , 'CarController@addPricesCars')->middleware('auth:api');;
-    Route::put('cars/price/{car_id}/update' , 'CarController@updatePrice')->middleware('auth:api');;
-    Route::delete('cars/price/{car_id}/delete' , 'CarController@delete')->middleware('auth:api');;
+    Route::post('cars/price/{car_id}', 'CarController@addPricesCars')->middleware('auth:api');
+    Route::put('cars/price/{car_id}/update', 'CarController@updatePrice')->middleware('auth:api');
+    Route::delete('cars/price/{car_id}/delete', 'CarController@delete')->middleware('auth:api');
 });
