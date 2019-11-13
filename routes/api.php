@@ -26,8 +26,10 @@ Route::group(['prefix' => 'auth'], function () {
 // owner endpoint
 // =============================================================================
 Route::group(['prefix' => 'v1'], function () {
+    //Ambil Cars 
     Route::get('cars', 'OwnerController@getOwnerWithCar');
-
+    Route::get('cars/owners' , 'CarController@getCarsWithOwner');
+    // Tambah Owners
     Route::post('owners', 'OwnerController@createOwners')->middleware('auth:api');
     Route::put('owners/{owner_id}/update', 'OwnerController@update')->middleware('auth:api');
     //Tambah mobil By Owners

@@ -77,7 +77,9 @@ class CarController extends Controller
             'messagess' => 'data berhasil di update',
         ], 201, $this->headers);
     }
-
+    // =========================================================================
+    // Delete Cars 
+    // =========================================================================
     public function deleteCars($owner_id, $car_id)
     {
 
@@ -90,6 +92,17 @@ class CarController extends Controller
         ], 202, $this->headers);
     }
 
+    // =========================================================================
+    // Get Cars With OWners
+    // =========================================================================
+    public function getCarsWithOwner()
+    {
+        $cars = Car::with('owner')->get();
+        return \response([
+            'status' => true,
+            'data'   => $cars
+        ], 200, $this->headers);
+    }
 
     // =========================================================================
     // Get a price 
