@@ -98,10 +98,7 @@ class CarController extends Controller
     public function getCarsWithOwner()
     {
         $cars = Car::with('owner')->get();
-        return \response([
-            'status' => true,
-            'data'   => $cars
-        ], 200, $this->headers);
+        return \response($cars, 200, $this->headers);
     }
 
     // =========================================================================
