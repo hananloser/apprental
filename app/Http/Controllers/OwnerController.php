@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Car;
 use App\Owner;
 use Illuminate\Http\Request;
-use Image ;
+use Image;
+
 class OwnerController extends Controller
 {
 
@@ -14,6 +15,9 @@ class OwnerController extends Controller
         'X-With-Requests' => 'X-With-Requests'
     ];
 
+    // =========================================================================
+    // Get Owners With Cars
+    // =========================================================================
     public function getOwnerWithCar()
     {
         $getDataWithOwner = Owner::all()->load('cars');
@@ -24,6 +28,9 @@ class OwnerController extends Controller
                 'X-With-Requests' => 'XMLHttpRequests'
             ]);
     }
+    // =========================================================================
+    // Create Owners
+    // =========================================================================
     public function createOwners(Request $request)
     {
         $validsi = $this->validate($request, [
@@ -43,10 +50,10 @@ class OwnerController extends Controller
             $nameImage = $request->file('foto')->getClientOriginalName();
 
             $thumbImage = Image::make($image->getRealPath())->resize(600, 400);
-            $thumbPath = public_path('uploads/thumb/owner/').$nameImage;
+            $thumbPath = public_path('uploads/thumb/owner/') . $nameImage;
             $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
-            $oriPath = public_path('uploads/normal/owner/'). $nameImage;
+            $oriPath = public_path('uploads/normal/owner/') . $nameImage;
             $oriImage = Image::make($image)->save($oriPath);
         };
 
@@ -66,7 +73,27 @@ class OwnerController extends Controller
             ], 201, $this->headers);
         }
     }
-
+    // =========================================================================
+    // Update Owners
+    // =========================================================================
     public function update(Request $request, $id)
-    { }
+    {
+        try {
+            $owner = Owner::where('owner_id', $id)->update($request->all());
+            return response(['status' => true, 'messages' => 'data berhasil di update']);
+        } catch (\Throwable $th) {
+
+            return response($th, 403, $this->headers);
+        }
+    }
+
+    public function deleteOwners($id)
+    {
+        try {
+            $owner = Owner::where('owner_id', $id)->delete();
+            return response(['status' => true, 'messages' => 'data berhasil di update']);
+        } catch (\Throwable $th) {
+            return response(['status' => false, 'error' => $th]);
+        }
+    }
 }
