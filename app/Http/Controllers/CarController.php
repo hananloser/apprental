@@ -80,14 +80,16 @@ class CarController extends Controller
     // =========================================================================
     // Delete Cars 
     // =========================================================================
-    public function deleteCars($car_id)
+    public function deleteCars($owner_id, $car_id)
     {
-        try {
-            $car = Car::where('car_id', $car_id)->delete();
-        } catch (\Throwable $th) {
 
-            return response(['status' => false, 'error' => $th], 404, $this->headers);
-        }
+        $owner = Owner::where('owner_id', $owner_id)->first();
+
+        $owner->cars()->whereCar_id($car_id)->delete();
+        return \response([
+            'status' => true,
+            'messagess' => 'data behasil di hapus'
+        ], 202, $this->headers);
     }
 
     // =========================================================================
