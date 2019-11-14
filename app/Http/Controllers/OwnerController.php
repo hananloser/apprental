@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Car;
 use App\Owner;
 use Illuminate\Http\Request;
 use Image;
