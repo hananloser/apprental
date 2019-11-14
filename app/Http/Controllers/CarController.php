@@ -29,7 +29,7 @@ class CarController extends Controller
             'kapasitas'     => 'required|numeric',
             'model_tahun'   => 'required|numeric',
             'jenis'         => 'required',
-            'gambar'        => 'mimes:png,jpg'
+            'gambar'        => 'mimes:png,jpg,jpeg'
         ]);
         if ($request->hasFile('gambar')) {
 
@@ -107,7 +107,6 @@ class CarController extends Controller
     public function getPrice()
     {
         $car = Car::with('price')->get();
-
         $clean = $car->map(function ($e) {
             return [
                 'car_id'        => $e->car_id,
