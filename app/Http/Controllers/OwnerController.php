@@ -23,7 +23,7 @@ class OwnerController extends Controller
         return response($getDataWithOwner, 200)
             ->withHeaders([
                 'Content-Type' => 'application/json',
-                'X-With-Requests' => 'XMLHttpRequests'
+                'X-Requested-With' => 'XMLHttpRequests'
             ]);
     }
     // =========================================================================
