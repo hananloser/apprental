@@ -114,6 +114,7 @@ class CarController extends Controller
                 'warna'         => $e->warna,
                 'kapasitas'     => $e->kapasitas,
                 'model_tahun'   => $e->model_tahun,
+                'gambar'        => $e->gambar,
                 'price'         => $e->price->map(function ($call) {
                     return [
                         'region'  => $call->region,

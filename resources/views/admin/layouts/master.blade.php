@@ -23,13 +23,15 @@
 </head>
 
 <body>
- 
-    <div class="container">
-        <div class="row">
-            @yield('content')
+
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                @yield('content')
+            </div>
         </div>
     </div>
-    
+
     <!-- Core -->
     <script src="{{asset('/assets/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('/assets/vendor/popper/popper.min.js')}}"></script>
