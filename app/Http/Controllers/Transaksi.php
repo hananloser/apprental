@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi as Trans;
+use App\Pelanggan as pelanggan ; 
 class Transaksi extends Controller
 {
     
@@ -13,6 +14,8 @@ class Transaksi extends Controller
      * @return [json]
      */
     public function addTrans(){ 
-        $trans = new Trans() ; 
+
+        
+
     }
 }
