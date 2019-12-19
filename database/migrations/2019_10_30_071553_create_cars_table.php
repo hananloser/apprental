@@ -16,13 +16,14 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('car_id');
             $table->unsignedBigInteger('owner_id');
-            $table->string('warna'); 
+            $table->string('warna');
             $table->string('plat_polisi');
             $table->string('nomor_chasis');
             $table->integer('kapasitas');
-            $table->string('model_tahun'); 
-            $table->string('gambar'); 
-            $table->string('jenis'); 
+            $table->string('model_tahun');
+            $table->string('gambar');
+            $table->string('jenis');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
 
