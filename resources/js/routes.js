@@ -1,8 +1,6 @@
-import Login from "../js/components/auth/Login.svelte"
-import Dashboard from "../js/components/screens/Dashboard.svelte"
-import Register from "../js/components/auth/Register.svelte"
+import Cars from "./components/Cars/Cars.svelte"
+import Login from "./components/auth/Login.svelte"
 export let routes = {
-    "/" : Dashboard ,
-    "/register" : Register ,
+    "/" : Cars,
     "/login" : Login
 }

@@ -10,21 +10,21 @@ use Image;
 
 class CarController extends Controller
 {
-    // Response Header 
+    // Response Header
     public $headers = [
         'Content-Type'    => 'application/json',
         'X-With-Requests' => 'X-With-Requests'
     ];
     /// ========================================================================
-    // Add Some cars with a $id for relation 
-    // Tambah Data berdasarkan $id 
+    // Add Some cars with a $id for relation
+    // Tambah Data berdasarkan $id
     // ========================================================================
     public function addCars(Request $request, $id)
     {
         $owner = Owner::where('owner_id', $id)->first();
         $validasi = $this->validate($request, [
             'warna'     => 'required',
-            'plat_polisi'     => 'required',
+            'plat_polisi'   => 'required',
             'nomor_chasis'  => 'required',
             'kapasitas'     => 'required|numeric',
             'model_tahun'   => 'required|numeric',
@@ -37,12 +37,12 @@ class CarController extends Controller
             $nameImage = $request->file('gambar')->getClientOriginalName();
             // Gambar Thumbp
             $thumbImage = Image::make($image->getRealPath())->resize(600, 400);
-            // Move Gambar ke Public Path 
+            // Move Gambar ke Public Path
             $thumbPath = public_path('uploads/thumb/cars/') . $nameImage;
-            //Create ThumbImage Di path 
+            //Create ThumbImage Di path
             $thumbImage = Image::make($thumbImage)->save($thumbPath);
 
-            // Gambar Asli yang di upload 
+            // Gambar Asli yang di upload
             $oriPath = public_path('uploads/normal/cars/') . $nameImage;
             //Move gambar nya ke path public
             Image::make($image)->save($oriPath);
@@ -78,7 +78,7 @@ class CarController extends Controller
         ], 201, $this->headers);
     }
     // =========================================================================
-    // Delete Cars 
+    // Delete Cars
     // =========================================================================
     public function deleteCars($owner_id, $car_id)
     {
@@ -102,7 +102,7 @@ class CarController extends Controller
     }
 
     // =========================================================================
-    // Get a price 
+    // Get a price
     // =========================================================================
     public function getPrice()
     {
@@ -171,7 +171,7 @@ class CarController extends Controller
     }
 
     // =========================================================================
-    // Delete price 
+    // Delete price
     // =========================================================================
     public function delete($id)
     {

@@ -12,7 +12,5 @@ class Transaksi extends Controller
      */
     public function addTrans(){
 
-
-
     }
 }
