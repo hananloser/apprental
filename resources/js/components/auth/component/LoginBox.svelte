@@ -1,76 +1,59 @@
 <script>
-    let email = '' ;
-    let password = '' ;
+  import FormInput from "./atoms/FormInput.svelte";
+  import {push , replace} from "svelte-spa-router"
+  let url = "/api/auth/login";
+  let user = {
+    email: "",
+    password: ""
+  };
+  const login = async () => {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+    });
+    const result = await res.json();
+    if(res.ok) {
+        console.log("berhasil login")
+        window.localStorage.setItem("access_token" , result.access_token)
+        replace("/")
+    }else if(res.status == 401) {
+        alert("gagal login")
+        user.email = ""
+        user.password = ""
+    }
+  };
 </script>
-
-<style>
-    /* your styles go here */
-</style>
-
 <div class="container mt--8 pb-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-7">
-        <div class="card bg-secondary shadow border-0">
-          <div class="card-body px-lg-5 py-lg-5">
-            <form role="form">
-              <div class="form-group mb-3">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="ni ni-email-83" />
-                    </span>
-                  </div>
-                  <input
-                    class="form-control"
-                    placeholder="Masukan Email"
-                    type="email"
-                    bind:value={email} />
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="ni ni-lock-circle-open" />
-                    </span>
-                  </div>
-                  <input
-                    class="form-control"
-                    placeholder="Password"
-                    type="password"
-                    bind:value={password} />
-                </div>
-              </div>
-              <div
-                class="custom-control custom-control-alternative custom-checkbox">
-                <input
-                  class="custom-control-input"
-                  id=" customCheckLogin"
-                  type="checkbox" />
-                <label class="custom-control-label" for=" customCheckLogin">
-                  <span class="text-muted">Remember me</span>
-                </label>
-              </div>
-              <div class="text-center">
-                <button type="button" class="btn btn-primary my-4">
-                  Sign in
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col-6">
-            <a href="/" class="text-light">
-              <small>Forgot password?</small>
-            </a>
-          </div>
-          <div class="col-6 text-right">
-            <a href="/" class="text-light">
-              <small>Create new account</small>
-            </a>
-          </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <form role="form" on:submit|preventDefault={login}>
+            <FormInput icons={'fa fa-user'}>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                required
+                bind:value={user.email} />
+            </FormInput>
+            <FormInput icons={'fa fa-lock'}>
+              <input
+                type="password"
+                required
+                class="form-control"
+                placeholder="Password"
+                bind:value={user.password} />
+            </FormInput>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary my-4">Login</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
