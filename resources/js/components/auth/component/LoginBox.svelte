@@ -1,6 +1,6 @@
 <script>
   import FormInput from "./atoms/FormInput.svelte";
-  import {push , replace} from "svelte-spa-router"
+  import { push } from "svelte-spa-router";
   let url = "/api/auth/login";
   let user = {
     email: "",
@@ -18,13 +18,19 @@
     if(res.ok) {
         console.log("berhasil login")
         window.localStorage.setItem("access_token" , result.access_token)
-        replace("/")
+        push("/cars" , {replace : true})
     }else if(res.status == 401) {
         alert("gagal login")
         user.email = ""
         user.password = ""
     }
   };
+
+  if(window.localStorage.getItem("access_token") != null ) {
+      console.log("sudah login")
+      push("/cars" , {replace : true})
+  }
+
 </script>
 <div class="container mt--8 pb-5">
   <div class="row justify-content-center">

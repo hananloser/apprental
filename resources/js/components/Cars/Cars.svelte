@@ -1,18 +1,20 @@
 <script>
-  import { push } from "svelte-spa-router";
-  import { onDestroy } from "svelte";
-  const access_token = window.localStorage.getItem("access_token");
-  if (access_token == null || access_token == "") {
-    push("/login");
-  }
-</script>
+  import Router from "svelte-spa-router";
+  import { link, replace } from "svelte-spa-router";
+  import NotFound from "../notFound.svelte";
+  export let params = {};
+  const prefix = "/cars";
+  const routes = {
+    "/:params": NotFound
+  };
 
-<style>
-  /* your styles go here */
-</style>
+  console.log(params);
+</script>
 
 <!-- markup (zero or more items) goes here -->
 
-<main>
-  <p>{access_token}</p>
-</main>
+<div class="container">
+  <h2>Halaman Cars</h2>
+    <a href="/cars/notfound" use:link>Tampil Halaman Not Found</a>
+  <Router {routes} {prefix} />
+</div>
