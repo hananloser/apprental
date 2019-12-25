@@ -4,5 +4,4 @@
   console.log(routes);
 </script>
 
-
 <Router {routes} />
