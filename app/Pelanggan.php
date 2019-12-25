@@ -1,10 +1,8 @@
 <?php
 
 namespace App;
-
 use App\Http\Controllers\Transaksi;
 use Illuminate\Database\Eloquent\Model;
-
 class Pelanggan extends Model
 {
   protected $guarded = [];

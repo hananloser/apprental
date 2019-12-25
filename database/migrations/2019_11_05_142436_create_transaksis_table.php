@@ -17,7 +17,7 @@ class CreateTransaksisTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('rent_id');
             $table->unsignedBigInteger('car_id');
-            $table->unsignedBigInteger('pelanggan_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
