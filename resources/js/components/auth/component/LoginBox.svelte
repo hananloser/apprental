@@ -15,23 +15,23 @@
       body: JSON.stringify(user)
     });
     const result = await res.json();
-    if(res.ok) {
-        console.log("berhasil login")
-        window.localStorage.setItem("access_token" , result.access_token)
-        push("/cars" , {replace : true})
-    }else if(res.status == 401) {
-        alert("gagal login")
-        user.email = ""
-        user.password = ""
+    if (res.ok) {
+      console.log("berhasil login");
+      window.localStorage.setItem("access_token", result.access_token);
+      push("/dashboard", { replace: true });
+    } else if (res.status == 401) {
+      alert("gagal login");
+      user.email = "";
+      user.password = "";
     }
   };
 
-  if(window.localStorage.getItem("access_token") != null ) {
-      console.log("sudah login")
-      push("/cars" , {replace : true})
+  if (window.localStorage.getItem("access_token") != null) {
+    console.log("sudah login");
+    push("/cars", { replace: true });
   }
-
 </script>
+
 <div class="container mt--8 pb-5">
   <div class="row justify-content-center">
     <div class="col-lg-5 col-md-7">
