@@ -97,6 +97,7 @@ class CarController extends Controller
     // =========================================================================
     public function getCarsWithOwner()
     {
+
         $cars = Car::with('owner')->get();
         return \response($cars, 200, $this->headers);
     }
@@ -149,6 +150,20 @@ class CarController extends Controller
             'messages'  => 'data berhasil di tambahkan'
         ], 201, $this->headers);
     }
+
+    // =========================================================================
+    // Ger Car with ID
+    // =========================================================================
+     public function getCarWithID($id){
+
+
+        $cars = Car::with('owner')->where('car_id' , $id)->get();
+
+        return response([
+            'status'    => true,
+            'data'  => $cars
+        ], 200, $this->headers);
+     }
 
     // =========================================================================
     // Update harga

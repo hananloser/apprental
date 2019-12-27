@@ -38,7 +38,7 @@ class OwnerController extends Controller
             'no_hp' => 'required',
             'rekening'  => 'required',
             'no_rekening' => 'required',
-            'foto'      => 'mimes:png,jpg,jpeg'
+            'foto'      => 'mimes:png'
 
         ]);
 
@@ -46,11 +46,24 @@ class OwnerController extends Controller
 
             $image = $request->file('foto');
             $nameImage = $request->file('foto')->getClientOriginalName();
-            $thumbImage = Image::make($image->getRealPath())->resize(600, 400);
+            $thumbImage = Image::make($image->getRealPath())->resize(600, 600);
             $thumbPath = public_path('uploads/thumb/owner/') . $nameImage;
             $thumbImage = Image::make($thumbImage)->save($thumbPath);
             $oriPath = public_path('uploads/normal/owner/') . $nameImage;
             $oriImage = Image::make($image)->save($oriPath);
+            Owner::firstOrcreate([
+                'nama_depan'    => $request->nama_depan,
+                'nama_belakang' => $request->nama_belakang,
+                'alamat'        => $request->alamat,
+                'no_hp'         => $request->no_hp,
+                'foto'          => $nameImage,
+                'rekening'      => $request->rekening,
+                'no_rekening'   => $request->no_rekening
+            ]);
+            return response([
+                'status'    => true,
+                'messages'  => 'data berhasil di buat'
+            ], 201, $this->headers);
         };
         if ($validsi) {
             Owner::firstOrcreate([
@@ -58,7 +71,6 @@ class OwnerController extends Controller
                 'nama_belakang' => $request->nama_belakang,
                 'alamat'        => $request->alamat,
                 'no_hp'         => $request->no_hp,
-                'foto'          => $nameImage,
                 'rekening'      => $request->rekening,
                 'no_rekening'   => $request->no_rekening
             ]);

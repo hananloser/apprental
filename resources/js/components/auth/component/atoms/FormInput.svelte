@@ -1,6 +1,6 @@
 <script>
   // your script goes here
-  export let icons = "";
+  export let icons = ""
 </script>
 <div class="form-group">
   <div class="input-group input-group-alternative">

@@ -28,7 +28,7 @@
 
   if (window.localStorage.getItem("access_token") != null) {
     console.log("sudah login");
-    push("/cars", { replace: true });
+    push("/dashboard");
   }
 </script>
 
