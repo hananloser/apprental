@@ -6,21 +6,6 @@
       href="./index.html">
       Dashboard
     </a>
-    <!-- Form -->
-    <form
-      class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex
-      ml-lg-auto">
-      <div class="form-group mb-0">
-        <div class="input-group input-group-alternative">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="fas fa-search" />
-            </span>
-          </div>
-          <input class="form-control" placeholder="Search" type="text" />
-        </div>
-      </div>
-    </form>
     <!-- User -->
     <ul class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item dropdown">
@@ -46,22 +31,6 @@
           <div class=" dropdown-header noti-title">
             <h6 class="text-overflow m-0">Welcome!</h6>
           </div>
-          <a href="./examples/profile.html" class="dropdown-item">
-            <i class="ni ni-single-02" />
-            <span>My profile</span>
-          </a>
-          <a href="./examples/profile.html" class="dropdown-item">
-            <i class="ni ni-settings-gear-65" />
-            <span>Settings</span>
-          </a>
-          <a href="./examples/profile.html" class="dropdown-item">
-            <i class="ni ni-calendar-grid-58" />
-            <span>Activity</span>
-          </a>
-          <a href="./examples/profile.html" class="dropdown-item">
-            <i class="ni ni-support-16" />
-            <span>Support</span>
-          </a>
           <div class="dropdown-divider" />
           <a href="#!" class="dropdown-item">
             <i class="ni ni-user-run" />

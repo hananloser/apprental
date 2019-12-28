@@ -10,6 +10,7 @@
   import Navbar from "./Component/Navbar.svelte";
   import Nav from "./Component/barNav.svelte";
   import Header from "./Component/Header.svelte";
+  import MapMonitor from './Map/index.svelte'
   // Parasm ini Berfungsi untuk menerima semua data yang di kirim kan di url
   export let params = {};
   //prefix ini Berfungsi untuk menandakan tujuan asli pada route yang akan di
@@ -33,7 +34,9 @@
     //Menampilkan halaman Transaksi
     "/transaksi": Transaksi,
     // Menampilkan Halaman User
-    "/users": Users
+    "/users": Users,
+    // Halaman Monitor
+    "/map": MapMonitor
   };
 
   console.log(params);

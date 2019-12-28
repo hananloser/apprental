@@ -41,7 +41,9 @@
                 <h2>Data Nya Kosong</h2>
               {/each}
             {:else}
-              <h1>..Loading</h1>
+                <div class="text-center">
+                    Loading ...
+                </div>
             {/if}
           </tbody>
         </table>

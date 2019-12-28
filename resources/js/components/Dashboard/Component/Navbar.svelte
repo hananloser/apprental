@@ -97,8 +97,32 @@
         </li>
         <li class="nav-item active ">
           <a class="nav-link" href="/dashboard/cars" use:link>
-            <i class="fa fa-route text-primary" />
+            <i class="fa fa-car text-primary" />
             Cars
+          </a>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" href="/dashboard/cars" use:link>
+            <i class="fa fa-user text-primary" />
+            Owners
+          </a>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" href="/dashboard/prices" use:link>
+            <i class="fa fa-cart-arrow-down text-primary" />
+            Prices
+          </a>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" href="/dashboard/transaksi" use:link>
+            <i class="fa fa-shopping-cart text-primary" />
+            Transaksi
+          </a>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" href="/dashboard/map" use:link>
+            <i class="fa fa-map text-primary" />
+            Monitor
           </a>
         </li>
       </ul>
