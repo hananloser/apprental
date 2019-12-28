@@ -32,7 +32,7 @@ class AuthController extends Controller
             'message' => 'Successfully created user!'
         ], 201);
     }
-  
+
     /**
      * Login user and create token
      *
@@ -59,7 +59,8 @@ class AuthController extends Controller
         $tokenResult = $user->createToken('Personal Access Token');
         $token = $tokenResult->token;
         if ($request->remember_me)
-            $token->expires_at = Carbon::now()->addWeeks(1);
+            // $token->expires_at = Carbon::now()->addWeeks(1);
+            $token->expires_at = Carbon::now()->addDay(1);
         $token->save();
         return response()->json([
             'access_token' => $tokenResult->accessToken,
@@ -69,7 +70,7 @@ class AuthController extends Controller
             )->toDateTimeString()
         ]);
     }
-  
+
     /**
      * Logout user (Revoke the token)
      *
@@ -82,7 +83,7 @@ class AuthController extends Controller
             'message' => 'berhasil logout'
         ]);
     }
-  
+
     /**
      * Get the authenticated User
      *

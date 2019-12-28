@@ -1,5 +1,6 @@
 <script>
   // your script goes here
+  import {link} from 'svelte-spa-router'
 </script>
 
 <style>
@@ -41,7 +42,7 @@
       <!-- Navbar items -->
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="../index.html">
+          <a class="nav-link nav-link-icon" href="/dashboard" use:link>
             <i class="ni ni-planet" />
             <span class="nav-link-inner--text">Dashboard</span>
           </a>

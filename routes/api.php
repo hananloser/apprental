@@ -31,4 +31,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('cars/price/{car_id}', 'CarController@addPricesCars')->middleware('auth:api');
     Route::put('cars/price/{car_id}/update', 'CarController@updatePrice')->middleware('auth:api');
     Route::delete('cars/price/{car_id}/delete', 'CarController@delete')->middleware('auth:api');
+    // Route Transaksi
+
+    Route::get('/transaksi' , 'TransaksiController@index');
+    Route::get('/transaksi/{id}' , 'TransaksiController@show');
+
 });

@@ -13,7 +13,7 @@
           <div class="copyright text-center text-xl-left text-muted">
             © 2018
             <a
-              href="https://www.creative-tim.com"
+              href="/"
               class="font-weight-bold ml-1"
               target="_blank">
               Irent Tim
