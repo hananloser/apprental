@@ -31,7 +31,7 @@
                   height="300"
                   width="400"
                   class="card-img-top"
-                  src="/uploads/normal/cars/{carByid.gambar}"
+                  src="/uploads/thumb/cars/{carByid.gambar}"
                   alt="Card image cap" />
               </div>
             </div>

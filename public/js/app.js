@@ -21921,7 +21921,7 @@ function create_if_block(ctx) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "height", "300");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "width", "400");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "class", "card-img-top");
-			if (img.src !== (img_src_value = "/uploads/normal/cars/" + /*carByid*/ ctx[0].gambar)) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "src", img_src_value);
+			if (img.src !== (img_src_value = "/uploads/thumb/cars/" + /*carByid*/ ctx[0].gambar)) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "src", img_src_value);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "alt", "Card image cap");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div1, "class", "card");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div2, "class", "card shadow");
@@ -21953,7 +21953,7 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (!current || dirty & /*carByid*/ 1 && img.src !== (img_src_value = "/uploads/normal/cars/" + /*carByid*/ ctx[0].gambar)) {
+			if (!current || dirty & /*carByid*/ 1 && img.src !== (img_src_value = "/uploads/thumb/cars/" + /*carByid*/ ctx[0].gambar)) {
 				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(img, "src", img_src_value);
 			}
 
