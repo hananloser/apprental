@@ -81,17 +81,6 @@ class TransaksiController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Transaksi  $transaksi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Transaksi $transaksi)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import Modal from "./Modal.svelte";
   import Router from "svelte-spa-router";
   import { link } from "svelte-spa-router";
 
@@ -17,6 +18,13 @@
       <div class="card">
         <div class="card-header">
           <h3>Data Mobil</h3>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal">
+            + Tambah
+          </button>
         </div>
         <div class="table-responsive">
           <table class="table">
@@ -54,3 +62,4 @@
     </div>
   </div>
 </div>
+<Modal />

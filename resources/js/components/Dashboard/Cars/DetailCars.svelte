@@ -1,5 +1,7 @@
 <script>
   import { onMount } from "svelte";
+  import { link } from "svelte-spa-router";
+  import DescCard from "./DescCard.svelte";
   export let params = {};
   let carByid;
 
@@ -7,28 +9,40 @@
     let res = await fetch("/api/v1/cars/" + params.carid);
     let json = await res.json();
     carByid = json.data[0];
-    console.log(carByid)
+    console.log(carByid);
   });
-
 </script>
+
 {#if carByid}
-  <div class="container mt-2 shadow">
+  <div class="container-fluid mt--7 mb-7">
     <div class="card">
       <div class="card-header">
         <h2>Detail Cars</h2>
+        <a href="/dashboard/cars" use:link class="btn btn-warning pull-right">
+          Back
+        </a>
       </div>
       <div class="card-body">
-        <ul>
-          <li>{carByid.jenis}</li>
-          <li>{carByid.warna}</li>
-          <li>{carByid.plat_polisi}</li>
-          <li>{carByid.model_tahun}</li>
-        </ul>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card shadow">
+              <div class="card">
+                <img
+                  height="300"
+                  width="400"
+                  class="card-img-top"
+                  src="/uploads/normal/cars/{carByid.gambar}"
+                  alt="Card image cap" />
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 col-sm-12 ml-4">
+            <DescCard {carByid} />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 {:else}
-    <div class="text-center">
-        Loading ..
-    </div>
+  <div class="text-center">Loading ..</div>
 {/if}
