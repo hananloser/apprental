@@ -3,6 +3,7 @@
   import Modal from "./Modal.svelte";
   import Router from "svelte-spa-router";
   import { link } from "svelte-spa-router";
+  import toastr from "toastr";
 
   let dataCars;
   onMount(async () => {
@@ -11,6 +12,12 @@
     dataCars = result;
   });
 
+  async function reloadHalaman() {
+    const response = await fetch("/api/v1/cars/owners");
+    const result = await response.json();
+    dataCars = result;
+  }
+
   async function reloadHalama(event) {
     if (event.type == "reload") {
       const response = await fetch("/api/v1/cars/owners");
@@ -18,6 +25,44 @@
       dataCars = result;
     }
   }
+
+  const deleteData = async (car_id, owner_id) => {
+    let header = new Headers();
+    header.append("X-Requested-With", "XMLHttpRequest");
+    header.append(
+      "Authorization",
+      "Bearer " + localStorage.getItem("access_token")
+    );
+    let response = await fetch(`/api/v1/owners/car/${owner_id}/${car_id}`, {
+      method: "DELETE",
+      headers: header
+    });
+    let resJson = await response.json();
+    reloadHalaman();
+  };
+
+  //   Tampilakan Notifikasi
+  const notifDelete = async (car_id, owner_id) => {
+    toastr.options = {
+      closeButton: true,
+      debug: false,
+      newestOnTop: true,
+      progressBar: true,
+      positionClass: "toast-top-right",
+      preventDuplicates: false,
+      showDuration: "300",
+      hideDuration: "1000",
+      timeOut: "5000",
+      extendedTimeOut: "1000",
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "fadeIn",
+      hideMethod: "fadeOut",
+      onclick: () => deleteData(car_id, owner_id)
+    };
+    toastr.warning("Anda yakin ? klik notif ini", "info");
+    reloadHalaman();
+  };
 </script>
 
 <div class="container-fluid mt--7 mb-7">
@@ -55,6 +100,11 @@
                       <a href="/dashboard/cars/{item.car_id}" use:link>
                         <i class="fa fa-eye" />
                       </a>
+                      <button
+                        class="btn btn-danger btn-sm ml-2"
+                        on:click={() => notifDelete(item.car_id, item.owner.owner_id)}>
+                        <i class="fa fa-trash " />
+                      </button>
                     </td>
                   </tr>
                 {:else}
