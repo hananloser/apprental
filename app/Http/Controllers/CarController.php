@@ -7,13 +7,14 @@ use App\Owner;
 use App\Rent_price;
 use Illuminate\Http\Request;
 use Image;
+use Validator;
 
 class CarController extends Controller
 {
     // Response Header
     public $headers = [
-        'Content-Type'    => 'application/json',
-        'X-With-Requests' => 'X-With-Requests'
+        'Content-Type' => 'application/json',
+        'X-With-Requests' => 'X-With-Requests',
     ];
     /// ========================================================================
     // Add Some cars with a $id for relation
@@ -22,14 +23,14 @@ class CarController extends Controller
     public function addCars(Request $request, $id)
     {
         $owner = Owner::where('owner_id', $id)->first();
-        $validasi = $this->validate($request, [
-            'warna'     => 'required',
-            'plat_polisi'   => 'required',
-            'nomor_chasis'  => 'required',
-            'kapasitas'     => 'required|numeric',
-            'model_tahun'   => 'required|numeric',
-            'jenis'         => 'required',
-            'gambar'        => 'mimes:png,jpg,jpeg'
+        $validasi =$this->validate($request, [
+            'warna' => 'required',
+            'plat_polisi' => 'required',
+            'nomor_chasis' => 'required',
+            'kapasitas' => 'required|numeric',
+            'model_tahun' => 'required|numeric',
+            'jenis' => 'required',
+            'gambar' => 'mimes:png,jpg,jpeg',
         ]);
         if ($request->hasFile('gambar')) {
 
@@ -47,20 +48,20 @@ class CarController extends Controller
             //Move gambar nya ke path public
             Image::make($image)->save($oriPath);
             Car::create([
-                'warna'     => $request->warna,
-                'plat_polisi'     => $request->plat_polisi,
-                'nomor_chasis'  => $request->nomor_chasis,
-                'kapasitas'     => $request->kapasitas,
-                'model_tahun'   => $request->model_tahun,
-                'owner_id'      => $owner->owner_id,
-                'jenis'         => $request->jenis,
-                'gambar'        => $nameImage
+                'warna' => $request->warna,
+                'plat_polisi' => $request->plat_polisi,
+                'nomor_chasis' => $request->nomor_chasis,
+                'kapasitas' => $request->kapasitas,
+                'model_tahun' => $request->model_tahun,
+                'owner_id' => $owner->owner_id,
+                'jenis' => $request->jenis,
+                'gambar' => $nameImage,
             ]);
         };
 
         return response([
-            'status'    => true,
-            'messages'  => 'data berhasil di buat'
+            'status' => true,
+            'messages' => 'data berhasil di buat',
         ], 200)->withHeaders($this->headers);
     }
     // =========================================================================
@@ -73,7 +74,7 @@ class CarController extends Controller
         $owner = Owner::where('owner_id', $owner_id)->first();
         $data = $owner->cars()->whereCar_id($car_id)->update($request->all());
         return response([
-            'status'    => true,
+            'status' => true,
             'messagess' => 'data berhasil di update',
         ], 201, $this->headers);
     }
@@ -88,7 +89,7 @@ class CarController extends Controller
         $owner->cars()->whereCar_id($car_id)->delete();
         return \response([
             'status' => true,
-            'messagess' => 'data behasil di hapus'
+            'messagess' => 'data behasil di hapus',
         ], 202, $this->headers);
     }
 
@@ -110,18 +111,18 @@ class CarController extends Controller
         $car = Car::with('price')->get();
         $clean = $car->map(function ($e) {
             return [
-                'car_id'        => $e->car_id,
-                'jenis'         => $e->jenis,
-                'warna'         => $e->warna,
-                'kapasitas'     => $e->kapasitas,
-                'model_tahun'   => $e->model_tahun,
-                'gambar'        => $e->gambar,
-                'price'         => $e->price->map(function ($call) {
+                'car_id' => $e->car_id,
+                'jenis' => $e->jenis,
+                'warna' => $e->warna,
+                'kapasitas' => $e->kapasitas,
+                'model_tahun' => $e->model_tahun,
+                'gambar' => $e->gambar,
+                'price' => $e->price->map(function ($call) {
                     return [
-                        'region'  => $call->region,
-                        'price'   => $call->price,
+                        'region' => $call->region,
+                        'price' => $call->price,
                     ];
-                })
+                }),
             ];
         });
         return response($clean, 200, $this->headers);
@@ -135,35 +136,35 @@ class CarController extends Controller
     {
         $car = Car::where('car_id', $id)->first();
         $this->validate($request, [
-            'region'    => 'required',
-            'price'     => 'required|numeric'
+            'region' => 'required',
+            'price' => 'required|numeric',
         ]);
 
         Rent_price::create([
-            'car_id'    => $car->car_id,
-            'region'    => $request->region,
-            'price'     => $request->price
+            'car_id' => $car->car_id,
+            'region' => $request->region,
+            'price' => $request->price,
         ]);
 
         return response([
-            'status'    => true,
-            'messages'  => 'data berhasil di tambahkan'
+            'status' => true,
+            'messages' => 'data berhasil di tambahkan',
         ], 201, $this->headers);
     }
 
     // =========================================================================
     // Ger Car with ID
     // =========================================================================
-     public function getCarWithID($id){
+    public function getCarWithID($id)
+    {
 
-
-        $cars = Car::with('owner')->where('car_id' , $id)->get();
+        $cars = Car::with('owner')->where('car_id', $id)->get();
 
         return response([
-            'status'    => true,
-            'data'  => $cars
+            'status' => true,
+            'data' => $cars,
         ], 200, $this->headers);
-     }
+    }
 
     // =========================================================================
     // Update harga
@@ -173,15 +174,15 @@ class CarController extends Controller
 
         $this->validate($request, [
             'region' => 'required',
-            'price'  => 'required|numeric'
+            'price' => 'required|numeric',
         ]);
         Rent_price::where('id', $id)->update([
-            'region'    => $request->region,
-            'price'     => $request->price
+            'region' => $request->region,
+            'price' => $request->price,
         ]);
         return response([
-            'status'    => true,
-            'messages'  => 'data berhasil di update'
+            'status' => true,
+            'messages' => 'data berhasil di update',
         ], 201, $this->headers);
     }
 
@@ -192,8 +193,8 @@ class CarController extends Controller
     {
         Rent_price::where('id', $id)->delete();
         return response([
-            'status'    => true,
-            'messages'  => 'data have deleted'
+            'status' => true,
+            'messages' => 'data have deleted',
         ], 403, $this->headers);
     }
 }

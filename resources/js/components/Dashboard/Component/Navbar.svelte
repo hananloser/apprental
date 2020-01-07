@@ -102,7 +102,7 @@
           </a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="/dashboard/cars" use:link>
+          <a class="nav-link" href="/dashboard/owners" use:link>
             <i class="fa fa-user text-primary" />
             Owners
           </a>

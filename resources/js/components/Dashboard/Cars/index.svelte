@@ -10,6 +10,14 @@
     const result = await response.json();
     dataCars = result;
   });
+
+  async function reloadHalama(event) {
+    if (event.type == "reload") {
+      const response = await fetch("/api/v1/cars/owners");
+      const result = await response.json();
+      dataCars = result;
+    }
+  }
 </script>
 
 <div class="container-fluid mt--7 mb-7">
@@ -50,7 +58,7 @@
                     </td>
                   </tr>
                 {:else}
-                  <h2>Data Nya Kosong</h2>
+                  <h2 class="text-center">Data Nya Kosong</h2>
                 {/each}
               {:else}
                 <div class="text-center">Loading ...</div>
@@ -62,4 +70,5 @@
     </div>
   </div>
 </div>
-<Modal />
+<!-- Teriman custom Event nya disini -->
+<Modal on:reload={reloadHalama} />
