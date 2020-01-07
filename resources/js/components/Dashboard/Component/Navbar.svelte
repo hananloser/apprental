@@ -1,12 +1,13 @@
-
 <script>
-    import {link} from 'svelte-spa-router'
+  import { link } from "svelte-spa-router";
+  export let params = {};
+  let current = "";
+  $: current = params.wild;
+  $: data = current;
 </script>
 
-
 <nav
-  class="navbar navbar-vertical fixed-left navbar-expand-md navbar-dark
-  bg-dark"
+  class="navbar navbar-vertical fixed-left navbar-expand-md navbar-dark bg-dark"
   id="sidenav-main">
   <div class="container-fluid">
     <!-- Toggler -->
@@ -90,37 +91,55 @@
       <!-- Navigation -->
       <ul class="navbar-nav">
         <li class="nav-item active ">
-          <a class="nav-link active " href="/dashboard" use:link>
+          <a
+            class="nav-link {data == undefined ? 'active' : ''}"
+            href="/dashboard"
+            use:link>
             <i class="ni ni-tv-2 text-primary" />
             Dashboard
           </a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="/dashboard/cars" use:link>
+          <a
+            class="nav-link {data == 'cars' ? 'active' : ''}"
+            href="/dashboard/cars"
+            use:link>
             <i class="fa fa-car text-primary" />
             Cars
           </a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="/dashboard/owners" use:link>
+          <a
+            class="nav-link {data == 'owners' ? 'active' : ''}"
+            href="/dashboard/owners"
+            use:link>
             <i class="fa fa-user text-primary" />
             Owners
           </a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="/dashboard/prices" use:link>
+          <a
+            class="nav-link {data == 'prices' ? 'active' : ''}"
+            href="/dashboard/prices"
+            use:link>
             <i class="fa fa-cart-arrow-down text-primary" />
             Prices
           </a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="/dashboard/transaksi" use:link>
+          <a
+            class="nav-link {data == 'transaksi' ? 'active' : ''}"
+            href="/dashboard/transaksi"
+            use:link>
             <i class="fa fa-shopping-cart text-primary" />
             Transaksi
           </a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="/dashboard/map" use:link>
+          <a
+            class="nav-link {data == 'map' ? 'active' : ''}"
+            href="/dashboard/map"
+            use:link>
             <i class="fa fa-map text-primary" />
             Monitor
           </a>

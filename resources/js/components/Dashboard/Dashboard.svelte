@@ -42,7 +42,7 @@
   console.log(params);
 </script>
 
-<Navbar />
+<Navbar params={params} />
 <div class="main-content">
   <Nav />
   <Header />

@@ -23056,26 +23056,44 @@ function create_fragment(ctx) {
 	let ul1;
 	let li2;
 	let a7;
+	let i2;
+	let t19;
+	let a7_class_value;
 	let link_action;
 	let t20;
 	let li3;
 	let a8;
+	let i3;
+	let t21;
+	let a8_class_value;
 	let link_action_1;
 	let t22;
 	let li4;
 	let a9;
+	let i4;
+	let t23;
+	let a9_class_value;
 	let link_action_2;
 	let t24;
 	let li5;
 	let a10;
+	let i5;
+	let t25;
+	let a10_class_value;
 	let link_action_3;
 	let t26;
 	let li6;
 	let a11;
+	let i6;
+	let t27;
+	let a11_class_value;
 	let link_action_4;
 	let t28;
 	let li7;
 	let a12;
+	let i7;
+	let t29;
+	let a12_class_value;
 	let link_action_5;
 
 	return {
@@ -23110,78 +23128,66 @@ function create_fragment(ctx) {
 			ul1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("ul");
 			li2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
-
-			a7.innerHTML = `<i class="ni ni-tv-2 text-primary"></i>
-            Dashboard
-          `;
-
+			i2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
+			t19 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Dashboard");
 			t20 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a8 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
-
-			a8.innerHTML = `<i class="fa fa-car text-primary"></i>
-            Cars
-          `;
-
+			i3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
+			t21 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Cars");
 			t22 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a9 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
-
-			a9.innerHTML = `<i class="fa fa-user text-primary"></i>
-            Owners
-          `;
-
+			i4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
+			t23 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Owners");
 			t24 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a10 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
-
-			a10.innerHTML = `<i class="fa fa-cart-arrow-down text-primary"></i>
-            Prices
-          `;
-
+			i5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
+			t25 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Prices");
 			t26 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a11 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
-
-			a11.innerHTML = `<i class="fa fa-shopping-cart text-primary"></i>
-            Transaksi
-          `;
-
+			i6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
+			t27 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Transaksi");
 			t28 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a12 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
-
-			a12.innerHTML = `<i class="fa fa-map text-primary"></i>
-            Monitor
-          `;
-
+			i7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
+			t29 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Monitor");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a0, "class", "navbar-brand pt-0");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a0, "href", "./index.html");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(ul0, "class", "nav align-items-center d-md-none");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div9, "class", "navbar-collapse-header d-md-none");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a7, "class", "nav-link active ");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(i2, "class", "ni ni-tv-2 text-primary");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a7, "class", a7_class_value = "nav-link " + (/*data*/ ctx[0] == undefined ? "active" : ""));
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a7, "href", "/dashboard");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(li2, "class", "nav-item active ");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a8, "class", "nav-link");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(i3, "class", "fa fa-car text-primary");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a8, "class", a8_class_value = "nav-link " + (/*data*/ ctx[0] == "cars" ? "active" : ""));
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a8, "href", "/dashboard/cars");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(li3, "class", "nav-item active ");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a9, "class", "nav-link");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(i4, "class", "fa fa-user text-primary");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a9, "class", a9_class_value = "nav-link " + (/*data*/ ctx[0] == "owners" ? "active" : ""));
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a9, "href", "/dashboard/owners");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(li4, "class", "nav-item active ");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a10, "class", "nav-link");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(i5, "class", "fa fa-cart-arrow-down text-primary");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a10, "class", a10_class_value = "nav-link " + (/*data*/ ctx[0] == "prices" ? "active" : ""));
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a10, "href", "/dashboard/prices");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(li5, "class", "nav-item active ");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a11, "class", "nav-link");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(i6, "class", "fa fa-shopping-cart text-primary");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a11, "class", a11_class_value = "nav-link " + (/*data*/ ctx[0] == "transaksi" ? "active" : ""));
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a11, "href", "/dashboard/transaksi");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(li6, "class", "nav-item active ");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a12, "class", "nav-link");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(i7, "class", "fa fa-map text-primary");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a12, "class", a12_class_value = "nav-link " + (/*data*/ ctx[0] == "map" ? "active" : ""));
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a12, "href", "/dashboard/map");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(li7, "class", "nav-item active ");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(ul1, "class", "navbar-nav");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div10, "class", "collapse navbar-collapse");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div10, "id", "sidenav-collapse-main");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div11, "class", "container-fluid");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(nav, "class", "navbar navbar-vertical fixed-left navbar-expand-md navbar-dark\n  bg-dark");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(nav, "class", "navbar navbar-vertical fixed-left navbar-expand-md navbar-dark bg-dark");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(nav, "id", "sidenav-main");
 		},
 		m(target, anchor) {
@@ -23197,29 +23203,65 @@ function create_fragment(ctx) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div10, ul1);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, li2);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(li2, a7);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a7, i2);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a7, t19);
 			link_action = svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["link"].call(null, a7) || ({});
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, t20);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, li3);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(li3, a8);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a8, i3);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a8, t21);
 			link_action_1 = svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["link"].call(null, a8) || ({});
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, t22);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, li4);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(li4, a9);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a9, i4);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a9, t23);
 			link_action_2 = svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["link"].call(null, a9) || ({});
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, t24);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, li5);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(li5, a10);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a10, i5);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a10, t25);
 			link_action_3 = svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["link"].call(null, a10) || ({});
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, t26);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, li6);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(li6, a11);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a11, i6);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a11, t27);
 			link_action_4 = svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["link"].call(null, a11) || ({});
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, t28);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(ul1, li7);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(li7, a12);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a12, i7);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(a12, t29);
 			link_action_5 = svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["link"].call(null, a12) || ({});
 		},
-		p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__["noop"],
+		p(ctx, [dirty]) {
+			if (dirty & /*data*/ 1 && a7_class_value !== (a7_class_value = "nav-link " + (/*data*/ ctx[0] == undefined ? "active" : ""))) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a7, "class", a7_class_value);
+			}
+
+			if (dirty & /*data*/ 1 && a8_class_value !== (a8_class_value = "nav-link " + (/*data*/ ctx[0] == "cars" ? "active" : ""))) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a8, "class", a8_class_value);
+			}
+
+			if (dirty & /*data*/ 1 && a9_class_value !== (a9_class_value = "nav-link " + (/*data*/ ctx[0] == "owners" ? "active" : ""))) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a9, "class", a9_class_value);
+			}
+
+			if (dirty & /*data*/ 1 && a10_class_value !== (a10_class_value = "nav-link " + (/*data*/ ctx[0] == "prices" ? "active" : ""))) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a10, "class", a10_class_value);
+			}
+
+			if (dirty & /*data*/ 1 && a11_class_value !== (a11_class_value = "nav-link " + (/*data*/ ctx[0] == "transaksi" ? "active" : ""))) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a11, "class", a11_class_value);
+			}
+
+			if (dirty & /*data*/ 1 && a12_class_value !== (a12_class_value = "nav-link " + (/*data*/ ctx[0] == "map" ? "active" : ""))) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a12, "class", a12_class_value);
+			}
+		},
 		i: svelte_internal__WEBPACK_IMPORTED_MODULE_0__["noop"],
 		o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__["noop"],
 		d(detaching) {
@@ -23234,10 +23276,33 @@ function create_fragment(ctx) {
 	};
 }
 
+function instance($$self, $$props, $$invalidate) {
+	let { params = {} } = $$props;
+	let current = "";
+
+	$$self.$set = $$props => {
+		if ("params" in $$props) $$invalidate(1, params = $$props.params);
+	};
+
+	let data;
+
+	$$self.$$.update = () => {
+		if ($$self.$$.dirty & /*params*/ 2) {
+			$: $$invalidate(2, current = params.wild);
+		}
+
+		if ($$self.$$.dirty & /*current*/ 4) {
+			$: $$invalidate(0, data = current);
+		}
+	};
+
+	return [data, params];
+}
+
 class Navbar extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__["SvelteComponent"] {
 	constructor(options) {
 		super();
-		Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["init"])(this, options, null, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__["safe_not_equal"], {});
+		Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["init"])(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__["safe_not_equal"], { params: 1 });
 	}
 }
 
@@ -23344,12 +23409,12 @@ function create_fragment(ctx) {
 	let t1;
 	let t2;
 	let current;
-	const navbar = new _Component_Navbar_svelte__WEBPACK_IMPORTED_MODULE_8__["default"]({});
+	const navbar = new _Component_Navbar_svelte__WEBPACK_IMPORTED_MODULE_8__["default"]({ props: { params: /*params*/ ctx[0] } });
 	const nav = new _Component_barNav_svelte__WEBPACK_IMPORTED_MODULE_9__["default"]({});
 	const header = new _Component_Header_svelte__WEBPACK_IMPORTED_MODULE_10__["default"]({});
 
 	const router = new svelte_spa_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-			props: { routes: /*routes*/ ctx[0], prefix }
+			props: { routes: /*routes*/ ctx[1], prefix }
 		});
 
 	return {
@@ -23375,7 +23440,11 @@ function create_fragment(ctx) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["mount_component"])(router, div, null);
 			current = true;
 		},
-		p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__["noop"],
+		p(ctx, [dirty]) {
+			const navbar_changes = {};
+			if (dirty & /*params*/ 1) navbar_changes.params = /*params*/ ctx[0];
+			navbar.$set(navbar_changes);
+		},
 		i(local) {
 			if (current) return;
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["transition_in"])(navbar.$$.fragment, local);
@@ -23420,16 +23489,16 @@ function instance($$self, $$props, $$invalidate) {
 	console.log(params);
 
 	$$self.$set = $$props => {
-		if ("params" in $$props) $$invalidate(1, params = $$props.params);
+		if ("params" in $$props) $$invalidate(0, params = $$props.params);
 	};
 
-	return [routes, params];
+	return [params, routes];
 }
 
 class Dashboard extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__["SvelteComponent"] {
 	constructor(options) {
 		super();
-		Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["init"])(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__["safe_not_equal"], { params: 1 });
+		Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["init"])(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__["safe_not_equal"], { params: 0 });
 	}
 }
 
