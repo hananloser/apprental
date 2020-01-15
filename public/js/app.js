@@ -33203,152 +33203,448 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function get_each_context(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[15] = list[i];
+	return child_ctx;
+}
+
+// (97:16) {:else}
+function create_else_block(ctx) {
+	let option;
+	let each_1_anchor;
+	let each_value = /*owners*/ ctx[0];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	}
+
+	return {
+		c() {
+			option = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("option");
+			option.textContent = "Pili Owner";
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			each_1_anchor = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["empty"])();
+			option.__value = "";
+			option.value = option.__value;
+		},
+		m(target, anchor) {
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, option, anchor);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(target, anchor);
+			}
+
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, each_1_anchor, anchor);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*owners*/ 1) {
+				each_value = /*owners*/ ctx[0];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+					}
+				}
+
+				for (; i < each_blocks.length; i += 1) {
+					each_blocks[i].d(1);
+				}
+
+				each_blocks.length = each_value.length;
+			}
+		},
+		d(detaching) {
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(option);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["destroy_each"])(each_blocks, detaching);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(each_1_anchor);
+		}
+	};
+}
+
+// (95:16) {#if !owners}
+function create_if_block(ctx) {
+	let option;
+
+	return {
+		c() {
+			option = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("option");
+			option.textContent = "tunggu";
+			option.__value = "";
+			option.value = option.__value;
+		},
+		m(target, anchor) {
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, option, anchor);
+		},
+		p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__["noop"],
+		d(detaching) {
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(option);
+		}
+	};
+}
+
+// (99:18) {#each owners as owner}
+function create_each_block(ctx) {
+	let option;
+	let t_value = /*owner*/ ctx[15].nama_depan + "";
+	let t;
+	let option_value_value;
+
+	return {
+		c() {
+			option = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("option");
+			t = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t_value);
+			option.__value = option_value_value = /*owner*/ ctx[15];
+			option.value = option.__value;
+		},
+		m(target, anchor) {
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, option, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(option, t);
+		},
+		p(ctx, dirty) {
+			if (dirty & /*owners*/ 1 && t_value !== (t_value = /*owner*/ ctx[15].nama_depan + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t, t_value);
+
+			if (dirty & /*owners*/ 1 && option_value_value !== (option_value_value = /*owner*/ ctx[15])) {
+				option.__value = option_value_value;
+			}
+
+			option.value = option.__value;
+		},
+		d(detaching) {
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(option);
+		}
+	};
+}
+
+// (92:10) <Form>
 function create_default_slot(ctx) {
 	let div0;
-	let label0;
-	let t1;
-	let input0;
-	let t2;
-	let small0;
-	let t3_value = /*cars*/ ctx[0].jenis + "";
-	let t3;
-	let t4;
+	let select;
+	let t0;
 	let div1;
-	let label1;
-	let t6;
-	let input1;
-	let t7;
-	let small1;
-	let t8_value = /*cars*/ ctx[0].warna + "";
-	let t8;
-	let t9;
+	let label0;
+	let t2;
+	let input0;
+	let t3;
+	let small0;
+	let t4_value = /*cars*/ ctx[2].plat_polisi + "";
+	let t4;
+	let t5;
 	let div2;
+	let label1;
+	let t7;
+	let input1;
+	let t8;
+	let small1;
+	let t9_value = /*cars*/ ctx[2].jenis + "";
+	let t9;
+	let t10;
+	let div3;
 	let label2;
-	let t11;
-	let input2;
 	let t12;
-	let small2;
-	let t13_value = /*cars*/ ctx[0].nomor_chasis + "";
+	let input2;
 	let t13;
+	let small2;
+	let t14_value = /*cars*/ ctx[2].warna + "";
 	let t14;
+	let t15;
+	let div4;
+	let label3;
+	let t17;
 	let input3;
+	let t18;
+	let small3;
+	let t19_value = /*cars*/ ctx[2].nomor_chasis + "";
+	let t19;
+	let t20;
+	let div5;
+	let label4;
+	let t22;
+	let input4;
+	let t23;
+	let small4;
+	let t24_value = /*cars*/ ctx[2].model_tahun + "";
+	let t24;
+	let t25;
+	let div6;
+	let label5;
+	let t27;
+	let input5;
+	let t28;
+	let small5;
+	let t29_value = /*cars*/ ctx[2].kapasitas + "";
+	let t29;
+	let t30;
+	let input6;
 	let dispose;
+
+	function select_block_type(ctx, dirty) {
+		if (!/*owners*/ ctx[0]) return create_if_block;
+		return create_else_block;
+	}
+
+	let current_block_type = select_block_type(ctx, -1);
+	let if_block = current_block_type(ctx);
 
 	return {
 		c() {
 			div0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
-			label0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
-			label0.textContent = "Jenis";
-			t1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
-			input0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
-			t2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
-			small0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
-			t3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t3_value);
-			t4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			select = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("select");
+			if_block.c();
+			t0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			div1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
-			label1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
-			label1.textContent = "warna";
-			t6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
-			input1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
-			t7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
-			small1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
-			t8 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t8_value);
-			t9 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			label0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
+			label0.textContent = "Plat polisi";
+			t2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			input0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			t3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			small0 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
+			t4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t4_value);
+			t5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			div2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
+			label1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
+			label1.textContent = "Jenis";
+			t7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			input1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			t8 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			small1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
+			t9 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t9_value);
+			t10 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			div3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
 			label2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
-			label2.textContent = "Nomor chasis";
-			t11 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
-			input2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			label2.textContent = "warna";
 			t12 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			input2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			t13 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			small2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
-			t13 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t13_value);
-			t14 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			t14 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t14_value);
+			t15 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			div4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
+			label3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
+			label3.textContent = "Nomor chasis";
+			t17 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			input3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			t18 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			small3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
+			t19 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t19_value);
+			t20 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			div5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
+			label4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
+			label4.textContent = "Model Tahun";
+			t22 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			input4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			t23 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			small4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
+			t24 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t24_value);
+			t25 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			div6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("div");
+			label5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("label");
+			label5.textContent = "Kapasitas";
+			t27 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			input5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			t28 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			small5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("small");
+			t29 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])(t29_value);
+			t30 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
+			input6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("input");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(select, "name", "owner");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(select, "class", "form-control");
+			if (/*selected*/ ctx[1] === void 0) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["add_render_callback"])(() => /*select_change_handler*/ ctx[7].call(select));
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div0, "class", "form-group");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(label0, "for", "jenis");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input0, "type", "text");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input0, "name", "jenis");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input0, "class", "form-control");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(small0, "class", "muted");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div0, "class", "form-group");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div1, "class", "form-group");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(label1, "for", "jenis");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input1, "type", "text");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input1, "name", "warna");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input1, "name", "jenis");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input1, "class", "form-control");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(small1, "class", "muted");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div1, "class", "form-group");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div2, "class", "form-group");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(label2, "for", "jenis");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input2, "type", "text");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input2, "name", "nomor_chasis");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input2, "name", "warna");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input2, "class", "form-control");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(small2, "class", "muted");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div2, "class", "form-group");
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input3, "type", "file");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div3, "class", "form-group");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(label3, "for", "jenis");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input3, "type", "text");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input3, "name", "nomor_chasis");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input3, "class", "form-control");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(small3, "class", "muted");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div4, "class", "form-group");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(label4, "for", "jenis");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input4, "type", "text");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input4, "name", "nomor_chasis");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input4, "class", "form-control");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(small4, "class", "muted");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div5, "class", "form-group");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(label5, "for", "jenis");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input5, "type", "text");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input5, "name", "nomor_chasis");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input5, "class", "form-control");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(small5, "class", "muted");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div6, "class", "form-group");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input6, "type", "file");
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(input6, "class", "form-control");
 
 			dispose = [
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input0, "input", /*input0_input_handler*/ ctx[4]),
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input1, "input", /*input1_input_handler*/ ctx[5]),
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input2, "input", /*input2_input_handler*/ ctx[6]),
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input3, "change", /*input3_change_handler*/ ctx[7])
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(select, "change", /*select_change_handler*/ ctx[7]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input0, "input", /*input0_input_handler*/ ctx[8]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input1, "input", /*input1_input_handler*/ ctx[9]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input2, "input", /*input2_input_handler*/ ctx[10]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input3, "input", /*input3_input_handler*/ ctx[11]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input4, "input", /*input4_input_handler*/ ctx[12]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input5, "input", /*input5_input_handler*/ ctx[13]),
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(input6, "change", /*input6_change_handler*/ ctx[14])
 			];
 		},
 		m(target, anchor) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div0, anchor);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div0, label0);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div0, t1);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div0, input0);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input0, /*cars*/ ctx[0].jenis);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div0, t2);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div0, small0);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small0, t3);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t4, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div0, select);
+			if_block.m(select, null);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["select_option"])(select, /*selected*/ ctx[1]);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t0, anchor);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div1, anchor);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, label1);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, t6);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, input1);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input1, /*cars*/ ctx[0].warna);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, t7);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, small1);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small1, t8);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t9, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, label0);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, t2);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, input0);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input0, /*cars*/ ctx[2].plat_polisi);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, t3);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div1, small0);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small0, t4);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t5, anchor);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div2, anchor);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, label2);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, t11);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, input2);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input2, /*cars*/ ctx[0].nomor_chasis);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, t12);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, small2);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small2, t13);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t14, anchor);
-			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, input3, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, label1);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, t7);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, input1);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input1, /*cars*/ ctx[2].jenis);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, t8);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div2, small1);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small1, t9);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t10, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div3, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div3, label2);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div3, t12);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div3, input2);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input2, /*cars*/ ctx[2].warna);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div3, t13);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div3, small2);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small2, t14);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t15, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div4, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div4, label3);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div4, t17);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div4, input3);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input3, /*cars*/ ctx[2].nomor_chasis);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div4, t18);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div4, small3);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small3, t19);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t20, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div5, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div5, label4);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div5, t22);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div5, input4);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input4, /*cars*/ ctx[2].model_tahun);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div5, t23);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div5, small4);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small4, t24);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t25, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div6, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div6, label5);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div6, t27);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div6, input5);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input5, /*cars*/ ctx[2].kapasitas);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div6, t28);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(div6, small5);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["append"])(small5, t29);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, t30, anchor);
+			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, input6, anchor);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*cars*/ 1 && input0.value !== /*cars*/ ctx[0].jenis) {
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input0, /*cars*/ ctx[0].jenis);
+			if (current_block_type === (current_block_type = select_block_type(ctx, dirty)) && if_block) {
+				if_block.p(ctx, dirty);
+			} else {
+				if_block.d(1);
+				if_block = current_block_type(ctx);
+
+				if (if_block) {
+					if_block.c();
+					if_block.m(select, null);
+				}
 			}
 
-			if (dirty & /*cars*/ 1 && t3_value !== (t3_value = /*cars*/ ctx[0].jenis + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t3, t3_value);
-
-			if (dirty & /*cars*/ 1 && input1.value !== /*cars*/ ctx[0].warna) {
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input1, /*cars*/ ctx[0].warna);
+			if (dirty & /*selected*/ 2) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["select_option"])(select, /*selected*/ ctx[1]);
 			}
 
-			if (dirty & /*cars*/ 1 && t8_value !== (t8_value = /*cars*/ ctx[0].warna + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t8, t8_value);
-
-			if (dirty & /*cars*/ 1 && input2.value !== /*cars*/ ctx[0].nomor_chasis) {
-				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input2, /*cars*/ ctx[0].nomor_chasis);
+			if (dirty & /*cars*/ 4 && input0.value !== /*cars*/ ctx[2].plat_polisi) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input0, /*cars*/ ctx[2].plat_polisi);
 			}
 
-			if (dirty & /*cars*/ 1 && t13_value !== (t13_value = /*cars*/ ctx[0].nomor_chasis + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t13, t13_value);
+			if (dirty & /*cars*/ 4 && t4_value !== (t4_value = /*cars*/ ctx[2].plat_polisi + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t4, t4_value);
+
+			if (dirty & /*cars*/ 4 && input1.value !== /*cars*/ ctx[2].jenis) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input1, /*cars*/ ctx[2].jenis);
+			}
+
+			if (dirty & /*cars*/ 4 && t9_value !== (t9_value = /*cars*/ ctx[2].jenis + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t9, t9_value);
+
+			if (dirty & /*cars*/ 4 && input2.value !== /*cars*/ ctx[2].warna) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input2, /*cars*/ ctx[2].warna);
+			}
+
+			if (dirty & /*cars*/ 4 && t14_value !== (t14_value = /*cars*/ ctx[2].warna + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t14, t14_value);
+
+			if (dirty & /*cars*/ 4 && input3.value !== /*cars*/ ctx[2].nomor_chasis) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input3, /*cars*/ ctx[2].nomor_chasis);
+			}
+
+			if (dirty & /*cars*/ 4 && t19_value !== (t19_value = /*cars*/ ctx[2].nomor_chasis + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t19, t19_value);
+
+			if (dirty & /*cars*/ 4 && input4.value !== /*cars*/ ctx[2].model_tahun) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input4, /*cars*/ ctx[2].model_tahun);
+			}
+
+			if (dirty & /*cars*/ 4 && t24_value !== (t24_value = /*cars*/ ctx[2].model_tahun + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t24, t24_value);
+
+			if (dirty & /*cars*/ 4 && input5.value !== /*cars*/ ctx[2].kapasitas) {
+				Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_input_value"])(input5, /*cars*/ ctx[2].kapasitas);
+			}
+
+			if (dirty & /*cars*/ 4 && t29_value !== (t29_value = /*cars*/ ctx[2].kapasitas + "")) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["set_data"])(t29, t29_value);
 		},
 		d(detaching) {
 			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div0);
-			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t4);
+			if_block.d();
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t0);
 			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div1);
-			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t9);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t5);
 			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div2);
-			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t14);
-			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(input3);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t10);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div3);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t15);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div4);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t20);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div5);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t25);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(div6);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(t30);
+			if (detaching) Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["detach"])(input6);
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["run_all"])(dispose);
 		}
 	};
@@ -33407,7 +33703,7 @@ function create_fragment(ctx) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div5, "role", "dialog");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div5, "aria-labelledby", "exampleModalLabel");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(div5, "aria-hidden", "true");
-			dispose = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(form1, "submit", /*tambahData*/ ctx[2]);
+			dispose = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["listen"])(form1, "submit", /*tambahData*/ ctx[4]);
 		},
 		m(target, anchor) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, div5, anchor);
@@ -33425,7 +33721,7 @@ function create_fragment(ctx) {
 		p(ctx, [dirty]) {
 			const form0_changes = {};
 
-			if (dirty & /*$$scope, files, cars*/ 259) {
+			if (dirty & /*$$scope, files, cars, selected, owners*/ 262159) {
 				form0_changes.$$scope = { dirty, ctx };
 			}
 
@@ -33449,6 +33745,9 @@ function create_fragment(ctx) {
 }
 
 function instance($$self, $$props, $$invalidate) {
+	let owners;
+	let selected;
+
 	let cars = {
 		owner_id: "",
 		warna: "",
@@ -33461,7 +33760,14 @@ function instance($$self, $$props, $$invalidate) {
 	};
 
 	let files;
+	let ownerId;
 	const dispatch = Object(svelte__WEBPACK_IMPORTED_MODULE_3__["createEventDispatcher"])();
+
+	Object(svelte__WEBPACK_IMPORTED_MODULE_3__["onMount"])(async () => {
+		let res = await fetch("/api/v1/owners");
+		let json = await res.json();
+		$$invalidate(0, owners = json);
+	});
 
 	const tambahData = async e => {
 		e.preventDefault();
@@ -33470,10 +33776,10 @@ function instance($$self, $$props, $$invalidate) {
 		myHeaders.append("Authorization", "Bearer " + localStorage.getItem("access_token"));
 		var formdata = new FormData();
 		formdata.append("warna", cars.warna);
-		formdata.append("plat_polisi", "DP323421CP");
-		formdata.append("nomor_chasis", "C2344232");
-		formdata.append("kapasitas", "4");
-		formdata.append("model_tahun", "2016");
+		formdata.append("plat_polisi", cars.plat_polisi);
+		formdata.append("nomor_chasis", cars.nomor_chasis);
+		formdata.append("kapasitas", cars.kapasitas);
+		formdata.append("model_tahun", cars.model_tahun);
 		formdata.append("jenis", cars.jenis);
 		formdata.append("gambar", files[0], files[0].name);
 
@@ -33484,7 +33790,7 @@ function instance($$self, $$props, $$invalidate) {
 			redirect: "follow"
 		};
 
-		let res = await fetch("/api/v1/owners/car/2", requestOptions);
+		let res = await fetch("/api/v1/owners/car/" + selected.owner_id, requestOptions);
 		let json = await res.json();
 		window.$("#exampleModal").modal("hide");
 		dispatch("reload", { reload: "tolong reload halaman" });
@@ -33496,35 +33802,63 @@ function instance($$self, $$props, $$invalidate) {
 		};
 	};
 
+	function select_change_handler() {
+		selected = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["select_value"])(this);
+		$$invalidate(1, selected);
+		$$invalidate(0, owners);
+	}
+
 	function input0_input_handler() {
-		cars.jenis = this.value;
-		$$invalidate(0, cars);
+		cars.plat_polisi = this.value;
+		$$invalidate(2, cars);
 	}
 
 	function input1_input_handler() {
-		cars.warna = this.value;
-		$$invalidate(0, cars);
+		cars.jenis = this.value;
+		$$invalidate(2, cars);
 	}
 
 	function input2_input_handler() {
-		cars.nomor_chasis = this.value;
-		$$invalidate(0, cars);
+		cars.warna = this.value;
+		$$invalidate(2, cars);
 	}
 
-	function input3_change_handler() {
+	function input3_input_handler() {
+		cars.nomor_chasis = this.value;
+		$$invalidate(2, cars);
+	}
+
+	function input4_input_handler() {
+		cars.model_tahun = this.value;
+		$$invalidate(2, cars);
+	}
+
+	function input5_input_handler() {
+		cars.kapasitas = this.value;
+		$$invalidate(2, cars);
+	}
+
+	function input6_change_handler() {
 		files = this.files;
-		$$invalidate(1, files);
+		$$invalidate(3, files);
 	}
 
 	return [
+		owners,
+		selected,
 		cars,
 		files,
 		tambahData,
+		ownerId,
 		dispatch,
+		select_change_handler,
 		input0_input_handler,
 		input1_input_handler,
 		input2_input_handler,
-		input3_change_handler
+		input3_input_handler,
+		input4_input_handler,
+		input5_input_handler,
+		input6_change_handler
 	];
 }
 
@@ -33650,7 +33984,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (113:14) {:else}
+// (115:14) {:else}
 function create_else_block_1(ctx) {
 	let div;
 
@@ -33670,7 +34004,7 @@ function create_else_block_1(ctx) {
 	};
 }
 
-// (92:14) {#if dataCars}
+// (94:14) {#if dataCars}
 function create_if_block(ctx) {
 	let each_1_anchor;
 	let each_value = /*dataCars*/ ctx[0];
@@ -33749,7 +34083,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (110:16) {:else}
+// (112:16) {:else}
 function create_else_block(ctx) {
 	let h2;
 
@@ -33768,7 +34102,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (93:16) {#each dataCars as item, key}
+// (95:16) {#each dataCars as item, key}
 function create_each_block(ctx) {
 	let tr;
 	let td0;
@@ -33890,7 +34224,7 @@ function create_fragment(ctx) {
 
 	let current_block_type = select_block_type(ctx, -1);
 	let if_block = current_block_type(ctx);
-	const modal = new _Modal_svelte__WEBPACK_IMPORTED_MODULE_2__["default"]({});
+	const modal = new _Modal_svelte__WEBPACK_IMPORTED_MODULE_2__["default"]({ props: { dataCars: /*dataCars*/ ctx[0] } });
 	modal.$on("reload", /*reloadHalama*/ ctx[1]);
 
 	return {
@@ -33959,6 +34293,10 @@ function create_fragment(ctx) {
 					if_block.m(tbody, null);
 				}
 			}
+
+			const modal_changes = {};
+			if (dirty & /*dataCars*/ 1) modal_changes.dataCars = /*dataCars*/ ctx[0];
+			modal.$set(modal_changes);
 		},
 		i(local) {
 			if (current) return;

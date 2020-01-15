@@ -22,6 +22,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Tambah Owners
     Route::post('owners', 'OwnerController@createOwners')->middleware('auth:api');
     Route::put('owners/{owner_id}/update', 'OwnerController@update')->middleware('auth:api');
+    Route::get('owners', 'OwnerController@getAllOwner');
     //Tambah mobil By Owners
     Route::post('owners/car/{owner_id}', 'CarController@addCars')->middleware('auth:api');
     Route::put('owners/car/{owner_id}/{car_id}', 'CarController@updateCars')->middleware('auth:api');

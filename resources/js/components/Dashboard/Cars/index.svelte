@@ -6,6 +6,8 @@
   import toastr from "toastr";
 
   let dataCars;
+
+
   onMount(async () => {
     const response = await fetch("/api/v1/cars/owners");
     const result = await response.json();
@@ -121,4 +123,4 @@
   </div>
 </div>
 <!-- Teriman custom Event nya disini -->
-<Modal on:reload={reloadHalama} />
+<Modal on:reload={reloadHalama} {dataCars} />

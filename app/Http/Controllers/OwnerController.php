@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Owner;
 use Illuminate\Http\Request;
 use Image;
@@ -9,9 +10,20 @@ class OwnerController extends Controller
 {
 
     public $headers = [
-        'Content-Type'    => 'application/json',
-        'X-With-Requests' => 'X-With-Requests'
+        'Content-Type' => 'application/json',
+        'X-With-Requests' => 'X-With-Requests',
     ];
+
+    public function getAllOwner()
+    {
+        $getAllOwner = Owner::all();
+
+        return response($getAllOwner, 200)
+            ->withHeaders([
+                'Content-Type' => 'application/json',
+                'X-Requested-With' => 'XMLHttpRequests',
+            ]);
+    }
 
     // =========================================================================
     // Get Owners With Cars
@@ -23,7 +35,7 @@ class OwnerController extends Controller
         return response($getDataWithOwner, 200)
             ->withHeaders([
                 'Content-Type' => 'application/json',
-                'X-Requested-With' => 'XMLHttpRequests'
+                'X-Requested-With' => 'XMLHttpRequests',
             ]);
     }
     // =========================================================================
@@ -36,9 +48,9 @@ class OwnerController extends Controller
             'nama_belakang' => 'required',
             'alamat' => 'required',
             'no_hp' => 'required',
-            'rekening'  => 'required',
+            'rekening' => 'required',
             'no_rekening' => 'required',
-            'foto'      => 'mimes:png'
+            'foto' => 'mimes:png',
 
         ]);
 
@@ -52,31 +64,31 @@ class OwnerController extends Controller
             $oriPath = public_path('uploads/normal/owner/') . $nameImage;
             $oriImage = Image::make($image)->save($oriPath);
             Owner::firstOrcreate([
-                'nama_depan'    => $request->nama_depan,
+                'nama_depan' => $request->nama_depan,
                 'nama_belakang' => $request->nama_belakang,
-                'alamat'        => $request->alamat,
-                'no_hp'         => $request->no_hp,
-                'foto'          => $nameImage,
-                'rekening'      => $request->rekening,
-                'no_rekening'   => $request->no_rekening
+                'alamat' => $request->alamat,
+                'no_hp' => $request->no_hp,
+                'foto' => $nameImage,
+                'rekening' => $request->rekening,
+                'no_rekening' => $request->no_rekening,
             ]);
             return response([
-                'status'    => true,
-                'messages'  => 'data berhasil di buat'
+                'status' => true,
+                'messages' => 'data berhasil di buat',
             ], 201, $this->headers);
         };
         if ($validsi) {
             Owner::firstOrcreate([
-                'nama_depan'    => $request->nama_depan,
+                'nama_depan' => $request->nama_depan,
                 'nama_belakang' => $request->nama_belakang,
-                'alamat'        => $request->alamat,
-                'no_hp'         => $request->no_hp,
-                'rekening'      => $request->rekening,
-                'no_rekening'   => $request->no_rekening
+                'alamat' => $request->alamat,
+                'no_hp' => $request->no_hp,
+                'rekening' => $request->rekening,
+                'no_rekening' => $request->no_rekening,
             ]);
             return response([
-                'status'    => true,
-                'messages'  => 'data berhasil di buat'
+                'status' => true,
+                'messages' => 'data berhasil di buat',
             ], 201, $this->headers);
         }
     }
