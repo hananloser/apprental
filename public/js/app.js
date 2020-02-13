@@ -32669,15 +32669,10 @@ function create_fragment(ctx) {
 	};
 }
 
-function instance($$self) {
-	console.log(_routes__WEBPACK_IMPORTED_MODULE_2__["routes"]);
-	return [];
-}
-
 class App extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__["SvelteComponent"] {
 	constructor(options) {
 		super();
-		Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["init"])(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__["safe_not_equal"], {});
+		Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["init"])(this, options, null, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__["safe_not_equal"], {});
 	}
 }
 
@@ -34640,32 +34635,32 @@ function create_fragment(ctx) {
 			li2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
 			i2 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
-			t19 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Dashboard");
+			t19 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\r\n            Dashboard");
 			t20 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a8 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
 			i3 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
-			t21 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Cars");
+			t21 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\r\n            Cars");
 			t22 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a9 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
 			i4 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
-			t23 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Owners");
+			t23 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\r\n            Owners");
 			t24 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a10 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
 			i5 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
-			t25 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Prices");
+			t25 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\r\n            Prices");
 			t26 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a11 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
 			i6 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
-			t27 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Transaksi");
+			t27 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\r\n            Transaksi");
 			t28 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["space"])();
 			li7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("li");
 			a12 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("a");
 			i7 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("i");
-			t29 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\n            Monitor");
+			t29 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["text"])("\r\n            Monitor");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a0, "class", "navbar-brand pt-0");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(a0, "href", "./index.html");
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["attr"])(ul0, "class", "nav align-items-center d-md-none");
@@ -35080,7 +35075,7 @@ function create_fragment(ctx) {
 	return {
 		c() {
 			h1 = Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["element"])("h1");
-			h1.textContent = "Halaman Owners";
+			h1.textContent = "Halaman Owner tes lagi";
 		},
 		m(target, anchor) {
 			Object(svelte_internal__WEBPACK_IMPORTED_MODULE_0__["insert"])(target, h1, anchor);
