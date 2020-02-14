@@ -110,7 +110,18 @@ class OwnerController extends Controller
     {
         try {
             $owner = Owner::where('owner_id', $id)->delete();
-            return response(['status' => true, 'messages' => 'data berhasil di update']);
+            return response(['status' => true, 'messages' => 'data berhasil di di hapus']);
+        } catch (\Throwable $th) {
+            return response(['status' => false, 'error' => $th]);
+        }
+    }
+
+    
+    public function getOwnerById($id)
+    {
+        try {
+            $owner = Owner::where('owner_id', $id)->get();
+            return $owner;
         } catch (\Throwable $th) {
             return response(['status' => false, 'error' => $th]);
         }

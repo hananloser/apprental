@@ -3,22 +3,22 @@
   import { link } from "svelte-spa-router";
   import DescCard from "./DescCard.svelte";
   export let params = {};
-  let carByid;
+  let OwnerID;
 
   onMount(async () => {
-    let res = await fetch("/api/v1/cars/" + params.carid);
+    let res = await fetch(`/api/v1/owners/${params.ownerID}/detail`);
     let json = await res.json();
-    carByid = json.data[0];
-    console.log(carByid);
+    OwnerID = json[0];
+    console.log(OwnerID);
   });
 </script>
 
-{#if carByid}
+{#if OwnerID}
   <div class="container-fluid mt--7 mb-7">
     <div class="card">
       <div class="card-header">
-        <h2>Detail Cars</h2>
-        <a href="/dashboard/cars" use:link class="btn btn-warning pull-right">
+        <h2>Detail Owner</h2>
+        <a href="/dashboard/owners" use:link class="btn btn-warning pull-right">
           Back
         </a>
       </div>
@@ -31,13 +31,13 @@
                   height="300"
                   width="400"
                   class="card-img-top"
-                  src="/uploads/thumb/cars/{carByid.gambar}"
+                  src="/uploads/thumb/owner/{OwnerID.foto}"
                   alt="Card image cap" />
               </div>
             </div>
           </div>
           <div class="col-lg-7 col-sm-12 ml-4">
-            <DescCard {carByid} />
+            <DescCard {OwnerID} />
           </div>
         </div>
       </div>

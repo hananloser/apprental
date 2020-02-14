@@ -5,15 +5,15 @@
   import toastr from "toastr";
   let owners;
   let selected;
-  let cars = {
-    owner_id: "",
-    warna: "",
-    plat_polisi: "",
-    nomor_chasis: "",
-    kapasitas: "",
-    model_tahun: "",
-    gambar: "",
-    jenis: ""
+  let owner = {
+    owner_id: 1,
+    nama_depan: "",
+    nama_belakang: "",
+    alamat: "",
+    no_hp: "",
+    foto: "",
+    rekening: "",
+    no_rekening: ""
   };
 
   let files;
@@ -42,13 +42,13 @@
     );
     // Siap kan data Untuk Di kirim lewat formData
     var formdata = new FormData();
-    formdata.append("warna", cars.warna);
-    formdata.append("plat_polisi", cars.plat_polisi);
-    formdata.append("nomor_chasis", cars.nomor_chasis);
-    formdata.append("kapasitas", cars.kapasitas);
-    formdata.append("model_tahun", cars.model_tahun);
-    formdata.append("jenis", cars.jenis);
-    formdata.append("gambar", files[0], files[0].name);
+    formdata.append("nama_depan", owner.nama_depan);
+    formdata.append("nama_belakang", owner.nama_belakang);
+    formdata.append("alamat", owner.alamat);
+    formdata.append("no_hp", owner.no_hp);
+    formdata.append("rekening", owner.rekening);
+    formdata.append("no_rekening", owner.no_rekening);
+    formdata.append("foto", files[0], files[0].name);
 
     var requestOptions = {
       method: "POST",
@@ -56,7 +56,10 @@
       body: formdata,
       redirect: "follow"
     };
-    let res = await fetch("/api/v1/owners/car/" + selected.owner_id, requestOptions);
+    let res = await fetch(
+      "/api/v1/owners",
+      requestOptions
+    );
     let json = await res.json();
     // Tutup modal Setelah data berhasil di tambahkan
     window.$("#exampleModal").modal("hide");
@@ -90,78 +93,61 @@
       <form on:submit={tambahData} id="myForm" method="post">
         <div class="modal-body">
           <Form>
+
             <div class="form-group">
-              <select name="owner" bind:value={selected} class="form-control">
-                {#if !owners}
-                  <option value="">tunggu</option>
-                {:else}
-                  <option value="">Pili Owner</option>
-                  {#each owners as owner}
-                    <option value={owner}>{owner.nama_depan}</option>
-                  {/each}
-                {/if}
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="jenis">Plat polisi</label>
+              <label for="jenis">Nama Depan</label>
               <input
                 type="text"
                 name="jenis"
                 class="form-control"
-                bind:value={cars.plat_polisi} />
-              <small class="muted">{cars.plat_polisi}</small>
+                bind:value={owner.nama_depan} />
             </div>
 
             <div class="form-group">
-              <label for="jenis">Jenis</label>
+              <label for="jenis">Nama Belakang</label>
               <input
                 type="text"
                 name="jenis"
                 class="form-control"
-                bind:value={cars.jenis} />
-              <small class="muted">{cars.jenis}</small>
+                bind:value={owner.nama_belakang} />
             </div>
 
             <div class="form-group">
-              <label for="jenis">warna</label>
+              <label for="jenis">Alamat</label>
               <input
                 type="text"
                 name="warna"
                 class="form-control"
-                bind:value={cars.warna} />
-              <small class="muted">{cars.warna}</small>
+                bind:value={owner.alamat} />
             </div>
 
             <div class="form-group">
-              <label for="jenis">Nomor chasis</label>
+              <label for="jenis">No Hp</label>
               <input
                 type="text"
                 name="nomor_chasis"
                 class="form-control"
-                bind:value={cars.nomor_chasis} />
-              <small class="muted">{cars.nomor_chasis}</small>
+                bind:value={owner.no_hp} />
             </div>
 
-             <div class="form-group">
-              <label for="jenis">Model Tahun</label>
+            <div class="form-group">
+              <label for="jenis">rekening</label>
               <input
                 type="text"
                 name="nomor_chasis"
                 class="form-control"
-                bind:value={cars.model_tahun} />
-              <small class="muted">{cars.model_tahun}</small>
+                bind:value={owner.rekening} />
+              <small class="muted">{owner.rekening}</small>
             </div>
 
-               <div class="form-group">
-              <label for="jenis">Kapasitas</label>
+            <div class="form-group">
+              <label for="jenis">No rekening</label>
               <input
                 type="text"
                 name="nomor_chasis"
                 class="form-control"
-                bind:value={cars.kapasitas} />
-              <small class="muted">{cars.kapasitas}</small>
+                bind:value={owner.no_rekening} />
             </div>
-
 
             <input type="file" bind:files class="form-control" />
           </Form>

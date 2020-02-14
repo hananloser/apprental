@@ -3,6 +3,7 @@
   import { link, push, replace } from "svelte-spa-router";
   import Cars from "./Cars/index.svelte";
   import Owner from "./Owners/index.svelte";
+  import DetailOwner from "./Owners/DetailOwner.svelte"
   import Price from "./Prices/index.svelte";
   import Users from "./Users/index.svelte";
   import Detail from "./Cars/DetailCars.svelte";
@@ -29,6 +30,7 @@
     "/cars/:carid": Detail,
     // Menampilkan Halaman Owners
     "/owners": Owner,
+    "/owners/:ownerID/detail": DetailOwner,
     // Menampilkan Halaman Price
     "/prices": Price,
     //Menampilkan halaman Transaksi
