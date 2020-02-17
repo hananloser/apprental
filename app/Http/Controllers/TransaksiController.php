@@ -42,13 +42,13 @@ class TransaksiController extends Controller
         ]);
 
         if($valid){
-            Transaksi::create($request->all());
+            Transaksi::firstOrCreate($request->all());
         }
 
         return response()->json([
             'status' => true , 
             'pesan'  => 'data berhasil di buat'
-        ], $this->$headers);
+        ]);
 
     }
 
@@ -58,9 +58,11 @@ class TransaksiController extends Controller
      * @param  \App\Transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaksi $transaksi , $id)
-    {
+    public function show(Transaksi $transaksi , $uuid)
+    { 
+        $result = $transaksi->all()->where('uuid', $uuid);
 
+        return response($result, 200);
     }
 
     /**

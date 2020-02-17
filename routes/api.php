@@ -37,7 +37,7 @@ Route::group(['prefix' => 'v1'], function () {
     // Route Transaksi
 
     Route::get('/transaksi' , 'TransaksiController@index');
-    Route::get('/transaksi/{id}' , 'TransaksiController@show');
+    Route::get('/transaksi/{uuid}' , 'TransaksiController@show');
     Route::post('/transaksi' , 'TransaksiController@store');
 
 });
