@@ -34,4 +34,10 @@
     * [] Route::get('/transaksi/{uuid}' , 'TransaksiController@show');
     * [] Route::post('/transaksi' , 'TransaksiController@store');
 
+## Headers 
+    * [] $headers = [
+        'Content-Type'    => 'application/json',
+        'X-With-Requests' => 'X-With-Requests'
+    ];
+
 ## By Hanan Asyrawi :tada:
