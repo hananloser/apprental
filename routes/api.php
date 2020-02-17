@@ -38,5 +38,6 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('/transaksi' , 'TransaksiController@index');
     Route::get('/transaksi/{id}' , 'TransaksiController@show');
+    Route::post('/transaksi' , 'TransaksiController@store');
 
 });

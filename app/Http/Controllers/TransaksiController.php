@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Transaksi;
 use App\Http\Resources\TransaksiResource ;
 use Illuminate\Http\Request;
+use Validator; 
 
 class TransaksiController extends Controller
 {
@@ -19,32 +20,10 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-
-        $trans = Transaksi::with('car', 'owner' , 'price')->paginate();
-
-        $data = $trans->map(function($e){
-           return [
-             'id'       => $e->id,
-             'rent_id'  => $e->rent_id,
-             'car_id'   => $e->car_id,
-             'owner'    => $e->owner->nama_depan,
-             'car'      => $e->car->jenis,
-             'status'   => $e->car->status,
-             'prices'   => $e->price->price
-           ];
-        });
-        return response()->json($data, 200); ;
+        $trans = Transaksi::get();
+        return $trans ;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -54,7 +33,23 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $valid = $request->validate([
+            'uuid' => 'required',
+            'jenis' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required'
+        ]);
+
+        if($valid){
+            Transaksi::create($request->all());
+        }
+
+        return response()->json([
+            'status' => true , 
+            'pesan'  => 'data berhasil di buat'
+        ], $this->$headers);
+
     }
 
     /**
@@ -65,19 +60,7 @@ class TransaksiController extends Controller
      */
     public function show(Transaksi $transaksi , $id)
     {
-        $trans = Transaksi::with('car', 'owner' , 'price')->where('id',$id)->get();
-        $data = $trans->map(function($e){
-            return [
-              'id'       => $e->id,
-              'rent_id'  => $e->rent_id,
-              'car_id'   => $e->car_id,
-              'owner'    => $e->owner->nama_depan,
-              'car'      => $e->car->jenis,
-              'status'   => $e->car->status,
-              'prices'   => $e->price->price
-            ];
-         });
-         return response($data , 200 , $this->headers);
+
     }
 
     /**
