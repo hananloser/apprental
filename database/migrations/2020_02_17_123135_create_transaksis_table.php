@@ -15,6 +15,10 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('uuid'); 
+            $table->string('jenis');
+            $table->float('latitude', 10, 6);
+            $table->float('longitude', 10, 6);
             $table->timestamps();
         });
     }
