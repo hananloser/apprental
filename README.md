@@ -40,4 +40,17 @@
         'X-With-Requests' => 'X-With-Requests'
     ];
 
+## Response Transaki Route 
+    * {
+        "0": {
+            "id": 1,
+            "uuid": "2323123res",
+            "jenis": "avanzq",
+            "latitude": 20.32,
+            "longitude": 20.32,
+            "created_at": "2020-02-17 12:56:23",
+            "updated_at": "2020-02-17 12:56:23"
+        },
+    }
+
 ## By Hanan Asyrawi :tada:
