@@ -24,7 +24,6 @@ class TransaksiController extends Controller
         return $trans ;
     }
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +50,6 @@ class TransaksiController extends Controller
         ]);
 
     }
-
     /**
      * Display the specified resource.
      *

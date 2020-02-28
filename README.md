@@ -53,4 +53,8 @@
         },
     }
 
+## Endpoin Transaksi 
+    * [x] irent.id/api/v1/transaksi/uuid // Show Detail nya by UUID
+    * [x] irent.id/api/v1/transaksi POST / GET 
+
 ## By Hanan Asyrawi :tada:
