@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Transaksi;
 use App\Http\Resources\TransaksiResource ;
 use Illuminate\Http\Request;
-use Validator; 
+use Validator;
 
 class TransaksiController extends Controller
 {
@@ -20,7 +20,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $trans = Transaksi::get();
+        $trans = Transaksi::latest('created_at')->get();
+        // $trans = Transaksi::get();
+
         return $trans ;
     }
 
@@ -32,7 +34,7 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $valid = $request->validate([
             'uuid' => 'required',
             'jenis' => 'required',
@@ -45,7 +47,7 @@ class TransaksiController extends Controller
         }
 
         return response()->json([
-            'status' => true , 
+            'status' => true ,
             'pesan'  => 'data berhasil di buat'
         ]);
 
@@ -56,10 +58,10 @@ class TransaksiController extends Controller
      * @param  \App\Transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaksi $transaksi , $uuid)
-    { 
-        $result = $transaksi->all()->where('uuid', $uuid);
-        return response($result, 200);
+    public function show($uuid)
+    {
+        $result = Transaksi::where('uuid' , $uuid);
+        return response()->json($result);
     }
 
     /**
@@ -82,6 +84,6 @@ class TransaksiController extends Controller
      */
     public function destroy(Transaksi $transaksi)
     {
-        
+
     }
 }
