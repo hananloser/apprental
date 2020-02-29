@@ -21,8 +21,6 @@ class TransaksiController extends Controller
     public function index()
     {
         $trans = Transaksi::latest('created_at')->get();
-        // $trans = Transaksi::get();
-
         return $trans ;
     }
 
