@@ -11,7 +11,7 @@ class TransaksiController extends Controller
 {
     public $headers = [
         'Content-Type'    => 'application/json',
-        'X-With-Requests' => 'X-With-Requests'
+        'X-Requested-With' => 'XMLHttpRequest'
     ];
     /**
      * Display a listing of the resource.
@@ -59,7 +59,6 @@ class TransaksiController extends Controller
     public function show(Transaksi $transaksi , $uuid)
     { 
         $result = $transaksi->all()->where('uuid', $uuid);
-
         return response($result, 200);
     }
 
@@ -83,6 +82,6 @@ class TransaksiController extends Controller
      */
     public function destroy(Transaksi $transaksi)
     {
-        //
+        
     }
 }
